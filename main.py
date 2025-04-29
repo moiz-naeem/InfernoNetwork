@@ -109,6 +109,85 @@ def save_adjacency_matrix(G, filename):
     np.savetxt(filename, adj_matrix, fmt='%d')
 
 
+def adj_noun_graph_properties_check(G):
+
+    print("\nSkibidi Sammaakko")
+
+    bipartite_checker = nx.is_bipartite(G)
+    print(f"bipartite: {bipartite_checker}")
+
+    if nx.is_connected(G):
+        diameter = nx.diameter(G)
+        avg_path_length = nx.average_shortest_path_length(G)
+        all_pairs = dict(nx.all_pairs_shortest_path_length(G))
+        all_lengths = [length for start in all_pairs for end, length in all_pairs[start].items() if start != end]
+        print(f"Diameter: {diameter}")
+        print(f"Average path length: {avg_path_length:.2f}")
+        print(f"shortest path length: {min(all_lengths)}")
+        print(f"Longest path length: {max(all_lengths)}")
+
+    else:
+        print("not connected hence infinite diameter")
+        print("not connected hence cant calculate average path length")
+        print("not connected hence cant calculate shortest/longest path length")
+
+
+
+    clustering_coefficent = nx.clustering(G)
+    avg_clustering = nx.average_clustering(G)
+    print(f" Average clustering coefficient: {avg_clustering:.2f}")
+    print(f"Minimum clustering coefficient: {min(clustering_coefficent.values()):.2f}")
+    print(f" Maximum clustering coefficient: {max(clustering_coefficent.values()):.2f}")
+
+    degrees = dict(G.degree())
+    avg_degree = sum(degrees.values()) / len(degrees)
+    print(f"Average degree: {avg_degree:.2f}")
+    print(f"Minimum degree: {min(degrees.values())}")
+    print(f"Maximum degree: {max(degrees.values())}")
+
+
+    print(f"\nAdditional yap:")
+    print(f" Number of nodes: {G.number_of_nodes()}")
+    print(f"number of edges: {G.number_of_edges()}")
+    print(f"density: {nx.density(G):.4f}")
+
+def network_components_analysis(G):
+
+
+    print("\n \n component gangs")
+    top_compnent_count = 3;
+
+    components = sorted(nx.connected_components(G), key=len, reverse=True)
+    if(len(components) < 3):
+        top_compnent_count = len(components)
+
+    print("Number of components:", len(components))
+
+    for i, component in enumerate(components[:top_compnent_count]):
+        subgraph = G.subgraph(component)
+
+        noun_count = sum(1 for node in subgraph if subgraph.nodes[node].get('type') == 'noun')
+        adjective_count = sum(1 for node in subgraph if subgraph.nodes[node].get('type') == 'adjectve')
+
+
+        print(f"\ncoomponent {i + 1} (size: {subgraph.number_of_nodes()} nodes)")
+        print(f" mouns: {noun_count} ({noun_count / subgraph.number_of_nodes():.1%})")
+        print(f"  adjs: {adjective_count} ({adjective_count / subgraph.number_of_nodes():.1%})")
+
+
+        if adjective_count > 0:
+            overall_ratio = noun_count/adjective_count;
+            print(f" noun-to-adj ratio: {overall_ratio:.2f}:1")
+
+            if overall_ratio > 1.5:
+                print("network is noun-dominated")
+            elif overall_ratio < 0.67:
+                print("network is adjective-dominated")
+            else:
+                print("network has a balanced noun-adjective distribution")
+        else:
+            print(" no adjs in this component")
+
 
 if __name__ == "__main__":
     file_path = 'divine_comedy.txt'
@@ -125,4 +204,6 @@ if __name__ == "__main__":
 
     save_adjacency_matrix(network, 'adjacency_matrix.txt')
 
-    visualize_network(network)
+    visualize_network(network);
+    adj_noun_graph_properties_check(network);
+    network_components_analysis(network);
