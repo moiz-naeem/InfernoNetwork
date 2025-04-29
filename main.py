@@ -88,11 +88,11 @@ def visualize_network(G):
     plt.figure(figsize=(20, 15))
     nx.draw_networkx_nodes(G, pos, nodelist=nouns, node_color='red', node_size=500, alpha=0.8)
     nx.draw_networkx_nodes(G, pos, nodelist=adjs, node_color='green', node_size=500, alpha=0.8)
-    edges = [(u, v) for u, v, d in G.edges(data=True)]
+    edges = [(u, v) for u, v, d in G.edges(data=True) if d['weight'] > 1]
     nx.draw_networkx_edges(G, pos, edgelist=edges, width=1.0, alpha=0.2)
 
     degrees = dict(G.degree())
-    top_nodes = {node: node for node, deg in degrees.items()}
+    top_nodes = {node: node for node, deg in degrees.items() if deg > 2}
     nx.draw_networkx_labels(G, pos, labels=top_nodes, font_size=10, font_weight='bold')
 
 
