@@ -6,12 +6,10 @@ love
 man
 spirit
 guide
-whence
 hath
 light
 side
 sun
-forth
 heav
 eye
 life
@@ -51,7 +49,6 @@ son
 desire
 point
 course
-thence
 mark
 master
 joy
@@ -95,6 +92,9 @@ hope
 fear
 height
 peace
-hence
 doubt
 turn
+motion
+body
+mother
+water

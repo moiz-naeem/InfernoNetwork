@@ -58,13 +58,11 @@ celestial
 pleasant
 late
 ill
-rous
 primal
 fix
 worthy
 oft
 large
-forth
 strange
 false
 ancient
@@ -88,7 +86,6 @@ wild
 fresh
 sure
 brief
-aught
 single
 glorious
 urg
@@ -98,3 +95,6 @@ fierce
 certain
 like
 due
+bitter
+strong
+bent
