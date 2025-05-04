@@ -3,8 +3,7 @@ import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 from networkx.algorithms import community as nx_community
-from nltk import extract, WordNetLemmatizer
-from nltk.corpus import stopwords
+from nltk import WordNetLemmatizer
 from scipy.stats import linregress
 from scipy.optimize import curve_fit
 
@@ -28,6 +27,7 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
         "”",
         "“",
         "’",
+        "‘",
         "s",
         "st",
         "er",
@@ -61,124 +61,136 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
     return words
 
 
+def read_clean_text(word_list):
+    for i in range(len(word_list)):
+        # case doesnt matter
+        current_word = word_list[i].lower()
+        # strip all possbile endings
+        cleaned_word = current_word.strip("“”;,.?!;:")
+
+        if cleaned_word == "thou" or cleaned_word == "thee":
+            cleaned_word = "you"
+        elif cleaned_word == "thy" or cleaned_word == "thine":
+            cleaned_word = "yours"
+        elif cleaned_word == "e’en":
+            cleaned_word = "even"
+        elif cleaned_word == "ye":
+            cleaned_word = "you"
+        elif cleaned_word == "oft":
+            cleaned_word = "often"
+        elif cleaned_word == "hath":
+            cleaned_word = "have"
+        elif cleaned_word == "lo":
+            cleaned_word = "look"
+        elif cleaned_word == "doth":
+            cleaned_word = "do"
+        elif cleaned_word == "nam’d":
+            cleaned_word = "named"
+        elif cleaned_word == "rous’d":
+            cleaned_word = "roused"
+        elif cleaned_word == "urg’d":
+            cleaned_word = "urged"
+        elif cleaned_word == "mov’d":
+            cleaned_word = "moved"
+        elif cleaned_word == "heav’n":
+            cleaned_word = "heaven"
+        elif cleaned_word == "enter’d":
+            cleaned_word = "entered"
+        elif cleaned_word == "fix’d":
+            cleaned_word = "fixed"
+        elif cleaned_word == "mary":
+            cleaned_word = "Mary"
+
+        # Add the original end to the word
+        if "," in current_word:
+            word_list[i] = cleaned_word + ","
+
+        elif "!" in current_word:
+            word_list[i] = cleaned_word + "!"
+
+        elif "." in current_word:
+            word_list[i] = cleaned_word + "."
+
+        elif "?" in current_word:
+            word_list[i] = cleaned_word + "?"
+
+        elif ";" in current_word:
+            word_list[i] = cleaned_word + ";"
+
+        elif ":" in current_word:
+            word_list[i] = cleaned_word + ":"
+
+        else:
+            word_list[i] = cleaned_word
+
+    read = " ".join(word_list)
+
+    return read
+
+
 def process_text(file_path):
-    with open(file_path, "r", encoding="utf-8") as divine_comedy:
+    lines = []
+    # clean each line separately, lines are needed later
+    with open(file_path, "r") as text:
+        for line in text:
+            line = read_clean_text(line.split())
+            if line == "":
+                continue
+            lines.append(line)
 
-        read = divine_comedy.read().strip()
+    # join lines to tokenize
+    read = "\n".join(lines)
 
-        word_list = read.split()
+    all_word_token = nltk.tokenize.word_tokenize(read)
 
-        for i in range(len(word_list)):
-            # case doesnt matter
-            current_word = word_list[i].lower()
-            # strip all possbile endings
-            cleaned_word = current_word.strip("“”;,.?!;:")
+    words_token_tagged_by_pos = nltk.pos_tag(all_word_token)
 
-            if cleaned_word == "thou" or cleaned_word == "thee":
-                cleaned_word = "you"
-            elif cleaned_word == "thy" or cleaned_word == "thine":
-                cleaned_word = "yours"
-            elif cleaned_word == "e’en":
-                cleaned_word = "even"
-            elif cleaned_word == "ye":
-                cleaned_word = "you"
-            elif cleaned_word == "oft":
-                cleaned_word = "often"
-            elif cleaned_word == "hath":
-                cleaned_word = "have"
-            elif cleaned_word == "lo":
-                cleaned_word = "look"
-            elif cleaned_word == "doth":
-                cleaned_word = "do"
-            elif cleaned_word == "nam’d":
-                cleaned_word = "named"
-            elif cleaned_word == "rous’d":
-                cleaned_word = "roused"
-            elif cleaned_word == "urg’d":
-                cleaned_word = "urged"
-            elif cleaned_word == "mov’d":
-                cleaned_word = "moved"
-            elif cleaned_word == "heav’n":
-                cleaned_word = "heaven"
-            elif cleaned_word == "enter’d":
-                cleaned_word = "entered"
-            elif cleaned_word == "fix’d":
-                cleaned_word = "fixed"
-            elif cleaned_word == "mary":
-                cleaned_word = "Mary"
+    adjectives = extract_using_tag(words_token_tagged_by_pos, "JJ", "a")
+    nouns = extract_using_tag(words_token_tagged_by_pos, "NN", "n")
 
-            # Add the original end to the word
-            if "," in current_word:
-                word_list[i] = cleaned_word + ","
+    noun_frequencis = nltk.FreqDist(nouns)
+    adj_frequencies = nltk.FreqDist(adjectives)
 
-            elif "!" in current_word:
-                word_list[i] = cleaned_word + "!"
+    top_100_nouns = [word for word, count in noun_frequencis.most_common(100)]
+    top_100_adjs = [word for word, count in adj_frequencies.most_common(100)]
 
-            elif "." in current_word:
-                word_list[i] = cleaned_word + "."
-
-            elif "?" in current_word:
-                word_list[i] = cleaned_word + "?"
-
-            elif ";" in current_word:
-                word_list[i] = cleaned_word + ";"
-
-            else:
-                word_list[i] = cleaned_word
-
-        read = " ".join(word_list)
-
-        all_word_token = nltk.tokenize.word_tokenize(read)
-        all_sentence_token = nltk.tokenize.sent_tokenize(read)
-
-        words_token_tagged_by_pos = nltk.pos_tag(all_word_token)
-        # print(words_token_tagged_by_pos)
-
-        adjectives = extract_using_tag(words_token_tagged_by_pos, "JJ", "a")
-        nouns = extract_using_tag(words_token_tagged_by_pos, "NN", "n")
-
-        noun_frequencis = nltk.FreqDist(nouns)
-        adj_frequencies = nltk.FreqDist(adjectives)
-
-        top_100_nouns = [word for word, count in noun_frequencis.most_common(100)]
-        top_100_adjs = [word for word, count in adj_frequencies.most_common(100)]
-
-        print("\n top 100 most frequent nouns: ")
-        for word in top_100_nouns:
-            print(f"{word},")
-
-        print("\n top 100 most frequent adjective: ")
-        for word in top_100_adjs:
-            print(f"{word},")
-
-        print("\nTotal adjectives:", len(adjectives))
-
-    return all_sentence_token, top_100_nouns, top_100_adjs
+    return (lines, top_100_nouns, top_100_adjs)
 
 
-def graph_for_adj_noun_occurrence(sentences, noun_nodes, adj_nodes):
+def graph_for_adj_noun_occurrence(lines, top_nouns, top_adjs):
     G = nx.Graph()
-    for noun in noun_nodes:
-        G.add_node(noun, type="noun")
-    for adj in adj_nodes:
-        G.add_node(adj, type="adjectve")
 
-    for sentence in sentences:
-        words = nltk.tokenize.word_tokenize(sentence.lower())
-        sentence_nouns = set(words) & set(noun_nodes)
-        sentence_adjs = set(words) & set(adj_nodes)
+    overlaps = 0
 
-        for noun in sentence_nouns:
-            for adj in sentence_adjs:
-                if G.has_edge(noun, adj):
-                    G[noun][adj]["weight"] += 1
-                else:
-                    G.add_edge(noun, adj, weight=1)
+    for noun in top_nouns:
+        G.add_node(f"noun_{noun}", type="noun")
+        if noun in top_adjs:
+            overlaps += 1
 
+    for adj in top_adjs:
+        G.add_node(f"adj_{adj}", type="adjective")
+
+    print(f"Overlap between adj and nouns: {overlaps}")
+
+    for i in range(len(lines)):
+        words = nltk.tokenize.word_tokenize(lines[i].lower())
+
+        # there are duplicates in both classes, need to change the name of the node
+        line_nouns = [f"noun_{word}" for word in set(words) & set(top_nouns)]
+        line_adjs = [f"adj_{word}" for word in set(words) & set(top_adjs)]
+        line_words = line_adjs + line_nouns
+
+        for word1 in line_words:
+            for word2 in line_words:
+                if word1 != word2:
+                    if G.has_edge(word1, word2):
+                        G[word1][word2]["weight"] += 1
+                    else:
+                        G.add_edge(word1, word2, weight=1)
     return G
 
 
-def visualize_network(G):
+def visualize_network(G: nx.Graph):
     pos = nx.spring_layout(G, k=0.5, iterations=50)
 
     nouns = [node for node in G.nodes() if G.nodes[node]["type"] == "noun"]
@@ -201,8 +213,7 @@ def visualize_network(G):
     plt.title("Noun-Adjective Co-occurrence Network", fontsize=16)
     plt.axis("off")
     plt.savefig("noun_adj_network.png", dpi=300, bbox_inches="tight")
-
-    plt.show()
+    plt.close()
 
 
 def save_adjacency_matrix(G, filename):
@@ -216,7 +227,7 @@ def adj_noun_graph_properties_check(G):
     print("\nSkibidi Sammaakko")
 
     bipartite_checker = nx.is_bipartite(G)
-    print(f"bipartite: {bipartite_checker}")
+    print(f"Bipartite: {bipartite_checker}")
 
     if nx.is_connected(G):
         diameter = nx.diameter(G)
@@ -240,9 +251,9 @@ def adj_noun_graph_properties_check(G):
 
     clustering_coefficent = nx.clustering(G)
     avg_clustering = nx.average_clustering(G)
-    print(f" Average clustering coefficient: {avg_clustering:.2f}")
+    print(f"Average clustering coefficient: {avg_clustering:.2f}")
     print(f"Minimum clustering coefficient: {min(clustering_coefficent.values()):.2f}")
-    print(f" Maximum clustering coefficient: {max(clustering_coefficent.values()):.2f}")
+    print(f"Maximum clustering coefficient: {max(clustering_coefficent.values()):.2f}")
 
     degrees = dict(G.degree())
     avg_degree = sum(degrees.values()) / len(degrees)
@@ -251,14 +262,14 @@ def adj_noun_graph_properties_check(G):
     print(f"Maximum degree: {max(degrees.values())}")
 
     print(f"\nAdditional yap:")
-    print(f" Number of nodes: {G.number_of_nodes()}")
-    print(f"number of edges: {G.number_of_edges()}")
-    print(f"density: {nx.density(G):.4f}")
+    print(f"Number of nodes: {G.number_of_nodes()}")
+    print(f"Number of edges: {G.number_of_edges()}")
+    print(f"Density: {nx.density(G):.4f}")
 
 
 def network_components_analysis(G):
 
-    print("\n \n component gangs")
+    print("\n \n Component gangs")
     top_compnent_count = 3
 
     components = sorted(nx.connected_components(G), key=len, reverse=True)
@@ -274,13 +285,13 @@ def network_components_analysis(G):
             1 for node in subgraph if subgraph.nodes[node].get("type") == "noun"
         )
         adjective_count = sum(
-            1 for node in subgraph if subgraph.nodes[node].get("type") == "adjectve"
+            1 for node in subgraph if subgraph.nodes[node].get("type") == "adjective"
         )
 
-        print(f"\ncoomponent {i + 1} (size: {subgraph.number_of_nodes()} nodes)")
-        print(f" mouns: {noun_count} ({noun_count / subgraph.number_of_nodes():.1%})")
+        print(f"\nComponent {i + 1} (size: {subgraph.number_of_nodes()} nodes)")
+        print(f" Nouns: {noun_count} ({noun_count / subgraph.number_of_nodes():.1%})")
         print(
-            f"  adjs: {adjective_count} ({adjective_count / subgraph.number_of_nodes():.1%})"
+            f"  Adjs: {adjective_count} ({adjective_count / subgraph.number_of_nodes():.1%})"
         )
 
         if adjective_count > 0:
@@ -350,34 +361,34 @@ def plot_centralities_power_law_fit(G):
     plt.subplot(1, 3, 1)
     plt.hist(degree_centrality.values(), bins=30, color="skyblue", edgecolor="black")
     plt.title("Dgree Centrality Distribution")
-    plt.xlabel("degree Centrality")
-    plt.ylabel("frequency")
+    plt.xlabel("Degree Centrality")
+    plt.ylabel("Frequency")
 
     plt.subplot(1, 3, 2)
     plt.hist(
         closeness_centrality.values(), bins=30, color="lightgreen", edgecolor="black"
     )
     plt.title("Closeness Centrality Distribution")
-    plt.xlabel("closeness Centrality")
-    plt.ylabel("frequency")
+    plt.xlabel("Closeness Centrality")
+    plt.ylabel("Frequency")
 
     plt.subplot(1, 3, 3)
     plt.hist(
         betweenness_centrality.values(), bins=30, color="lightcoral", edgecolor="black"
     )
     plt.title("Betweeness Centrality Distribution")
-    plt.xlabel("betweenness Centrality")
-    plt.ylabel("frequency")
+    plt.xlabel("Betweenness Centrality")
+    plt.ylabel("Frequency")
 
     plt.tight_layout()
     plt.savefig("centralitites.png", dpi=300, bbox_inches="tight")
-    plt.show()
+    plt.close()
 
     plt.figure(figsize=(18, 5))
 
     plt.subplot(1, 3, 1)
     degree_r2, fit = analyze_power_law(
-        degree_centrality, "skyblue", "Degree", "veryweak evidence for power-law fit"
+        degree_centrality, "skyblue", "Degree", "Very weak evidence for power-law fit"
     )
 
     plt.subplot(1, 3, 2)
@@ -385,7 +396,7 @@ def plot_centralities_power_law_fit(G):
         closeness_centrality,
         "lightgreen",
         "Closeness",
-        "very weak evidence for power-law fit",
+        "Very weak evidence for power-law fit",
     )
 
     plt.subplot(1, 3, 3)
@@ -393,12 +404,11 @@ def plot_centralities_power_law_fit(G):
         betweenness_centrality,
         "black",
         "Betweenness",
-        "very weak evidence for power-law fit",
+        "Very weak evidence for power-law fit",
     )
 
     plt.tight_layout()
     plt.savefig("power_law_fits.png", dpi=300, bbox_inches="tight")
-    plt.show()
 
     print("\n\nPower Law Fit R-squared Values:")
     print(f"Degree Centrality: {degree_r2:.3f} --> {fit}")
@@ -517,8 +527,7 @@ def analyze_clustering_coefficient_distribution(G):
         better_r2 = power_law_r_squared
 
     plt.tight_layout()
-    plt.savefig("clustering_coefficient_distribution.png", dpi=300, bbox_inches="tight")
-    plt.show()
+    plt.savefig("clustering_coeff_distribution.png", dpi=300, bbox_inches="tight")
 
     print("\nClustering Coefficient Distribution Analysis:")
     print(f"Power Law Fit R² = {power_law_r_squared:.3f}, exponent = {slope:.3f}")
@@ -533,10 +542,6 @@ def analyze_clustering_coefficient_distribution(G):
     else:
         fit_quality = "Weak evidence"
     print(f"{fit_quality} for {better_model.lower()} fit")
-
-    plt.tight_layout()
-    plt.savefig("clustering_coefficient_distribution.png", dpi=300, bbox_inches="tight")
-    plt.show()
 
 
 def plot_clustering_coefficient_distribution(G):
@@ -556,7 +561,6 @@ def plot_clustering_coefficient_distribution(G):
     plt.xlabel("Clustering Coefficient")
     plt.ylabel("Probability Density")
     plt.title("Clustering Coefficient Distribution")
-    plt.show()
 
     return bin_centers, hist
 
@@ -585,7 +589,6 @@ def fit_power_law(bin_centers, hist):
     plt.ylabel("Log10(Frequency)")
     plt.title("Power Law Fit")
     plt.legend()
-    plt.show()
 
     print(
         f"Power-law fit: slope={slope:.3f}, intercept={intercept:.3f}, R-squared={r_squared:.3f}"
@@ -638,7 +641,6 @@ def fit_truncated_power_law(bin_centers, histogram_values):
         plt.ylabel("Probability Density")
         plt.title("Truncated Power Law Fit to Clustering Distribution")
         plt.legend()
-        plt.show()
 
         print(f"Truncated power law fit results:")
         print(f"exponent (a): {exponent:.3f}")
@@ -673,7 +675,7 @@ def detect_communities_louvain(G: nx.Graph):
 
     print("\nNetwork Composition Before Community Detection:")
     total_nouns = sum(1 for node in G.nodes() if G.nodes[node]["type"] == "noun")
-    total_adjs = sum(1 for node in G.nodes() if G.nodes[node]["type"] == "adjectve")
+    total_adjs = sum(1 for node in G.nodes() if G.nodes[node]["type"] == "adjective")
     print(f"Total nodes: {len(G.nodes())} (Nouns: {total_nouns}, Adjs: {total_adjs})")
     print(f"Total edges: {len(G.edges())}")
 
@@ -691,7 +693,7 @@ def detect_communities_louvain(G: nx.Graph):
     print("Total no. of communitites: ", total_communities)
     for i, comm in enumerate(communities[:total_communities]):
         nouns = [n for n in comm if G.nodes[n]["type"] == "noun"]
-        adjs = [a for a in comm if G.nodes[a]["type"] == "adjectve"]
+        adjs = [a for a in comm if G.nodes[a]["type"] == "adjective"]
 
         print(f"\nCommunity {i + 1} (Size: {len(comm)} nodes)")
         print(f"Nouns: {len(nouns)} ({len(nouns) / len(comm):.1%})")
@@ -752,22 +754,94 @@ def detect_communities_louvain(G: nx.Graph):
     plt.tight_layout()
     plt.axis("off")
     plt.savefig("noun_adj_comm.png")
-    plt.show()
 
     return partition
+
+
+def relation_evolution(file_path, top_nouns, top_adjs):
+    lines = []
+
+    noun_noun = []
+    noun_adj = []
+    adj_adj = []
+
+    with open(file_path, "r") as text:
+        for line in text:
+            line = read_clean_text(line.split())
+            if line == "":
+                continue
+            lines.append(line)
+
+    for i in range(len(lines)):
+        adj_this_line = 0
+        noun_this_line = 0
+
+        current_line = lines[i]
+        all_word_token = nltk.tokenize.word_tokenize(current_line)
+
+        words_token_tagged_by_pos = nltk.pos_tag(all_word_token)
+
+        adjectives = extract_using_tag(words_token_tagged_by_pos, "JJ", "a")
+        nouns = extract_using_tag(words_token_tagged_by_pos, "NN", "n")
+
+        for adj in adjectives:
+            if adj in top_adjs:
+                adj_this_line += 1
+
+        for noun in nouns:
+            if noun in top_nouns:
+                noun_this_line += 1
+
+        # relationships on this line
+        noun_noun.append(max(0, noun_this_line * (noun_this_line - 1) / 2))
+        noun_adj.append(noun_this_line * adj_this_line)
+        adj_adj.append(max(0, adj_this_line * (adj_this_line - 1) / 2))
+
+        if i != 0:
+            noun_noun[i] += noun_noun[(i - 1)]
+            noun_adj[i] += noun_adj[(i - 1)]
+            adj_adj[i] += adj_adj[(i - 1)]
+
+    # Plot the relationships
+    plt.figure(figsize=(18, 15))
+
+    # Plot noun-noun relationships
+    plt.subplot(3, 1, 1)
+    plt.plot(range(len(lines)), noun_noun, "r-", linewidth=1.5)
+    plt.title("Noun-Noun Relationships", fontsize=16)
+    plt.ylabel("Number of Relationships")
+    plt.grid(True, alpha=0.3)
+
+    # Plot noun-adj relationships
+    plt.subplot(3, 1, 2)
+    plt.plot(range(len(lines)), noun_adj, "g-", linewidth=1.5)
+    plt.title("Noun-Adjective Relationships", fontsize=16)
+    plt.ylabel("Number of Relationships")
+    plt.grid(True, alpha=0.3)
+
+    # Plot adj-adj relationships
+    plt.subplot(3, 1, 3)
+    plt.plot(range(len(lines)), adj_adj, "b-", linewidth=1.5)
+    plt.title("Adjective-Adjective Relationships", fontsize=16)
+    plt.xlabel("Line Number")
+    plt.ylabel("Number of Relationships")
+    plt.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.savefig("relationship_evolution.png", dpi=300, bbox_inches="tight")
 
 
 if __name__ == "__main__":
     file_path = "divine_comedy.txt"
 
-    sentences, top_nouns, top_adjs = process_text(file_path)
+    lines, top_nouns, top_adjs = process_text(file_path)
 
     with open("top_nouns.txt", "w", encoding="utf-8") as f:
         f.write(",\n".join(top_nouns))
     with open("top_adjectives.txt", "w", encoding="utf-8") as f:
         f.write(",\n".join(top_adjs))
 
-    network = graph_for_adj_noun_occurrence(sentences, top_nouns, top_adjs)
+    network = graph_for_adj_noun_occurrence(lines, top_nouns, top_adjs)
 
     save_adjacency_matrix(network, "adjacency_matrix.txt")
 
@@ -776,8 +850,17 @@ if __name__ == "__main__":
     network_components_analysis(network)
     summarize_components(network)
     plot_centralities_power_law_fit(network)
+
+    analyze_clustering_coefficient_distribution(network)
+
+    # do these do anything?
+
     bin_centers, histogram_vals = plot_clustering_coefficient_distribution(network)
     power_r2 = fit_power_law(bin_centers, histogram_vals)
     truncated_r2 = fit_truncated_power_law(bin_centers, histogram_vals)
     compare_fits(power_r2, truncated_r2)
+
     partition = detect_communities_louvain(network)
+
+    # relationship evolution
+    relation_evolution(file_path, top_nouns, top_adjs)
