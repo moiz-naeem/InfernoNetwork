@@ -1,39 +1,56 @@
 import nltk
-import networkx as nx;
-import numpy as np;
-import matplotlib.pyplot as plt;
+import networkx as nx
+import numpy as np
+import matplotlib.pyplot as plt
 from networkx.algorithms import community as nx_community
 from nltk import extract, WordNetLemmatizer
 from nltk.corpus import stopwords
 from scipy.stats import linregress
 from scipy.optimize import curve_fit
-import community as community_louvain
 
-nltk.download('punkt')
-nltk.download('punkt_tab')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-nltk.download('averaged_perceptron_tagger_eng')
+nltk.download("punkt")
+nltk.download("punkt_tab")
+nltk.download("wordnet")
+nltk.download("omw-1.4")
+nltk.download("averaged_perceptron_tagger_eng")
 nltk.download("maxent_ne_chunker")
 nltk.download("words")
-nltk.download('maxent_ne_chunker_tab')
-nltk.download('stopwords')
+nltk.download("maxent_ne_chunker_tab")
+nltk.download("stopwords")
 
 
 def extract_using_tag(tagged_pos, tag, p_o_s):
-    lammatizer = WordNetLemmatizer();
+    lammatizer = WordNetLemmatizer()
     words = []
 
-    noise = {"mary", "d", "”" , "“" , "’" , "s" , "st" , "er" , "n" , "th" , "d." , "t", "en", "'", "ne", "e", "ll", "re", "o",  "i",  # misclassified as both noun and adjective
+    noise = {
+        "d",
+        "”",
+        "“",
+        "’",
+        "s",
+        "st",
+        "er",
+        "n",
+        "th",
+        "d.",
+        "t",
+        "en",
+        "'",
+        "ne",
+        "e",
+        "ll",
+        "re",
+        "o",
+        "i",  # misclassified as both noun and adjective
         "whence",  # not a noun nor adjective
-        "rous",  # not a noun nor adjective
-        "doth",  # not a noun nor adjective
         "forth",  # not a noun nor adjective
         "thence",  # not a noun nor adjective
         "hence",  # not a noun nor adjective
         "aught",  # not a noun nor adjective
+        "rous",
+    }
 
-}
     for word, pos in tagged_pos:
         word = word.lower()
         if pos != tag or word in noise:
@@ -43,108 +60,155 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
         words.append(lemma)
     return words
 
+
 def process_text(file_path):
-    with open(file_path, 'r', encoding='utf-8') as divine_comedy:
+    with open(file_path, "r", encoding="utf-8") as divine_comedy:
 
         read = divine_comedy.read().strip()
-        all_word_token = nltk.tokenize.word_tokenize(read)
-        for i in range(len(all_word_token)):
-            current_word = all_word_token[i].lower()
-            if current_word == "thou" or current_word == "thee":
-                current_word = "you"
-            elif current_word == "heav":
-                current_word = "heaven"
-            elif current_word == "thy" or current_word == "thine":
-                current_word = "yours"
-            elif current_word == "e":
-                current_word = "even"
-            elif current_word == "ye":
-                current_word = "you"
-            elif current_word == "oft":
-                current_word = "often"
-            elif current_word == "hath":
-                current_word = "have"
-            elif current_word == "mov":
-                current_word = "move"
-            elif current_word == "nam":
-                current_word = "name"
-            elif current_word == "urg":
-                current_word = "urge"
-            elif current_word == "lo":
-                current_word = "look"
 
+        word_list = read.split()
+
+        for i in range(len(word_list)):
+            # case doesnt matter
+            current_word = word_list[i].lower()
+            # strip all possbile endings
+            cleaned_word = current_word.strip("“”;,.?!;:")
+
+            if cleaned_word == "thou" or cleaned_word == "thee":
+                cleaned_word = "you"
+            elif cleaned_word == "thy" or cleaned_word == "thine":
+                cleaned_word = "yours"
+            elif cleaned_word == "e’en":
+                cleaned_word = "even"
+            elif cleaned_word == "ye":
+                cleaned_word = "you"
+            elif cleaned_word == "oft":
+                cleaned_word = "often"
+            elif cleaned_word == "hath":
+                cleaned_word = "have"
+            elif cleaned_word == "lo":
+                cleaned_word = "look"
+            elif cleaned_word == "doth":
+                cleaned_word = "do"
+            elif cleaned_word == "nam’d":
+                cleaned_word = "named"
+            elif cleaned_word == "rous’d":
+                cleaned_word = "roused"
+            elif cleaned_word == "urg’d":
+                cleaned_word = "urged"
+            elif cleaned_word == "mov’d":
+                cleaned_word = "moved"
+            elif cleaned_word == "heav’n":
+                cleaned_word = "heaven"
+            elif cleaned_word == "enter’d":
+                cleaned_word = "entered"
+            elif cleaned_word == "fix’d":
+                cleaned_word = "fixed"
+            elif cleaned_word == "mary":
+                cleaned_word = "Mary"
+
+            # Add the original end to the word
+            if "," in current_word:
+                word_list[i] = cleaned_word + ","
+
+            elif "!" in current_word:
+                word_list[i] = cleaned_word + "!"
+
+            elif "." in current_word:
+                word_list[i] = cleaned_word + "."
+
+            elif "?" in current_word:
+                word_list[i] = cleaned_word + "?"
+
+            elif ";" in current_word:
+                word_list[i] = cleaned_word + ";"
+
+            else:
+                word_list[i] = cleaned_word
+
+        read = " ".join(word_list)
+
+        all_word_token = nltk.tokenize.word_tokenize(read)
         all_sentence_token = nltk.tokenize.sent_tokenize(read)
-        # print(all_word_token)
+
         words_token_tagged_by_pos = nltk.pos_tag(all_word_token)
-        print(
-            words_token_tagged_by_pos
-        )
+        # print(words_token_tagged_by_pos)
+
         adjectives = extract_using_tag(words_token_tagged_by_pos, "JJ", "a")
         nouns = extract_using_tag(words_token_tagged_by_pos, "NN", "n")
+
         noun_frequencis = nltk.FreqDist(nouns)
         adj_frequencies = nltk.FreqDist(adjectives)
+
         top_100_nouns = [word for word, count in noun_frequencis.most_common(100)]
         top_100_adjs = [word for word, count in adj_frequencies.most_common(100)]
+
         print("\n top 100 most frequent nouns: ")
         for word in top_100_nouns:
-            print(f"{word}")
+            print(f"{word},")
+
         print("\n top 100 most frequent adjective: ")
         for word in top_100_adjs:
-            print(f"{word}")
+            print(f"{word},")
+
         print("\nTotal adjectives:", len(adjectives))
 
     return all_sentence_token, top_100_nouns, top_100_adjs
 
+
 def graph_for_adj_noun_occurrence(sentences, noun_nodes, adj_nodes):
     G = nx.Graph()
     for noun in noun_nodes:
-        G.add_node(noun, type="noun" )
+        G.add_node(noun, type="noun")
     for adj in adj_nodes:
-        G.add_node(adj, type="adjectve" )
+        G.add_node(adj, type="adjectve")
 
     for sentence in sentences:
-        words  = nltk.tokenize.word_tokenize(sentence.lower())
+        words = nltk.tokenize.word_tokenize(sentence.lower())
         sentence_nouns = set(words) & set(noun_nodes)
         sentence_adjs = set(words) & set(adj_nodes)
 
         for noun in sentence_nouns:
             for adj in sentence_adjs:
                 if G.has_edge(noun, adj):
-                    G[noun][adj]["weight"] += 1;
+                    G[noun][adj]["weight"] += 1
                 else:
-                    G.add_edge(noun, adj, weight=1);
+                    G.add_edge(noun, adj, weight=1)
 
-    return G;
+    return G
 
 
 def visualize_network(G):
-    pos = nx.spring_layout(G, k=0.5, iterations=50);
+    pos = nx.spring_layout(G, k=0.5, iterations=50)
 
-    nouns = [node for node in G.nodes() if G.nodes[node]['type'] == 'noun']
-    adjs = [node for node in G.nodes() if G.nodes[node]['type'] == 'adjective']
+    nouns = [node for node in G.nodes() if G.nodes[node]["type"] == "noun"]
+    adjs = [node for node in G.nodes() if G.nodes[node]["type"] == "adjective"]
 
     plt.figure(figsize=(20, 15))
-    nx.draw_networkx_nodes(G, pos, nodelist=nouns, node_color='red', node_size=500, alpha=0.8)
-    nx.draw_networkx_nodes(G, pos, nodelist=adjs, node_color='green', node_size=500, alpha=0.8)
-    edges = [(u, v) for u, v, d in G.edges(data=True) if d['weight'] > 1]
+    nx.draw_networkx_nodes(
+        G, pos, nodelist=nouns, node_color="red", node_size=500, alpha=0.8
+    )
+    nx.draw_networkx_nodes(
+        G, pos, nodelist=adjs, node_color="green", node_size=500, alpha=0.8
+    )
+    edges = [(u, v) for u, v, d in G.edges(data=True) if d["weight"] > 1]
     nx.draw_networkx_edges(G, pos, edgelist=edges, width=1.0, alpha=0.2)
 
     degrees = dict(G.degree())
     top_nodes = {node: node for node, deg in degrees.items() if deg > 2}
-    nx.draw_networkx_labels(G, pos, labels=top_nodes, font_size=10, font_weight='bold')
-
+    nx.draw_networkx_labels(G, pos, labels=top_nodes, font_size=10, font_weight="bold")
 
     plt.title("Noun-Adjective Co-occurrence Network", fontsize=16)
-    plt.axis('off')
-    plt.savefig('noun_adj_network.png', dpi=300, bbox_inches='tight')
+    plt.axis("off")
+    plt.savefig("noun_adj_network.png", dpi=300, bbox_inches="tight")
 
     plt.show()
 
-def save_adjacency_matrix(G, filename):
 
+def save_adjacency_matrix(G, filename):
     nodes = sorted(G.nodes())
     adj_matrix = nx.to_numpy_array(G, nodelist=nodes)
-    np.savetxt(filename, adj_matrix, fmt='%d')
+    np.savetxt(filename, adj_matrix, fmt="%d")
 
 
 def adj_noun_graph_properties_check(G):
@@ -158,7 +222,12 @@ def adj_noun_graph_properties_check(G):
         diameter = nx.diameter(G)
         avg_path_length = nx.average_shortest_path_length(G)
         all_pairs = dict(nx.all_pairs_shortest_path_length(G))
-        all_lengths = [length for start in all_pairs for end, length in all_pairs[start].items() if start != end]
+        all_lengths = [
+            length
+            for start in all_pairs
+            for end, length in all_pairs[start].items()
+            if start != end
+        ]
         print(f"Diameter: {diameter}")
         print(f"Average path length: {avg_path_length:.2f}")
         print(f"shortest path length: {min(all_lengths)}")
@@ -168,8 +237,6 @@ def adj_noun_graph_properties_check(G):
         print("not connected hence infinite diameter")
         print("not connected hence cant calculate average path length")
         print("not connected hence cant calculate shortest/longest path length")
-
-
 
     clustering_coefficent = nx.clustering(G)
     avg_clustering = nx.average_clustering(G)
@@ -183,20 +250,19 @@ def adj_noun_graph_properties_check(G):
     print(f"Minimum degree: {min(degrees.values())}")
     print(f"Maximum degree: {max(degrees.values())}")
 
-
     print(f"\nAdditional yap:")
     print(f" Number of nodes: {G.number_of_nodes()}")
     print(f"number of edges: {G.number_of_edges()}")
     print(f"density: {nx.density(G):.4f}")
 
+
 def network_components_analysis(G):
 
-
     print("\n \n component gangs")
-    top_compnent_count = 3;
+    top_compnent_count = 3
 
     components = sorted(nx.connected_components(G), key=len, reverse=True)
-    if(len(components) < 3):
+    if len(components) < 3:
         top_compnent_count = len(components)
 
     print("Number of components:", len(components))
@@ -204,17 +270,21 @@ def network_components_analysis(G):
     for i, component in enumerate(components[:top_compnent_count]):
         subgraph = G.subgraph(component)
 
-        noun_count = sum(1 for node in subgraph if subgraph.nodes[node].get('type') == 'noun')
-        adjective_count = sum(1 for node in subgraph if subgraph.nodes[node].get('type') == 'adjectve')
-
+        noun_count = sum(
+            1 for node in subgraph if subgraph.nodes[node].get("type") == "noun"
+        )
+        adjective_count = sum(
+            1 for node in subgraph if subgraph.nodes[node].get("type") == "adjectve"
+        )
 
         print(f"\ncoomponent {i + 1} (size: {subgraph.number_of_nodes()} nodes)")
         print(f" mouns: {noun_count} ({noun_count / subgraph.number_of_nodes():.1%})")
-        print(f"  adjs: {adjective_count} ({adjective_count / subgraph.number_of_nodes():.1%})")
-
+        print(
+            f"  adjs: {adjective_count} ({adjective_count / subgraph.number_of_nodes():.1%})"
+        )
 
         if adjective_count > 0:
-            overall_ratio = noun_count/adjective_count;
+            overall_ratio = noun_count / adjective_count
             print(f" noun-to-adj ratio: {overall_ratio:.2f}:1")
 
             if overall_ratio > 1.5:
@@ -235,7 +305,7 @@ def summarize_components(G):
         subgraph = G.subgraph(component)
         nodes = subgraph.number_of_nodes()
         edges = subgraph.number_of_edges()
-        size  = (nodes, edges)
+        size = (nodes, edges)
         size_str = f"{nodes}, {edges}"
 
         if nx.is_connected(subgraph):
@@ -246,11 +316,26 @@ def summarize_components(G):
             avg_path_length = "n/a"
 
         avg_degree_centrality = np.mean(list(nx.degree_centrality(subgraph).values()))
-        data.append((f"Component {i + 1}", size_str, "{:.2f}".format(avg_path_length), diameter, "{:.2f}".format(avg_degree_centrality)))
+        data.append(
+            (
+                f"Component {i + 1}",
+                size_str,
+                "{:.2f}".format(avg_path_length),
+                diameter,
+                "{:.2f}".format(avg_degree_centrality),
+            )
+        )
 
     print("\nSummary of Top 3 Components:")
-    print("{:<15} {:<20} {:<25} {:<15} {:<20}".format(
-        "Component", "Size (Nodes, Edges)", "Average Path Length", "Diameter", "Avg Degree Centrality"))
+    print(
+        "{:<15} {:<20} {:<25} {:<15} {:<20}".format(
+            "Component",
+            "Size (Nodes, Edges)",
+            "Average Path Length",
+            "Diameter",
+            "Avg Degree Centrality",
+        )
+    )
     for row in data:
         print("{:<15} {:<20} {:<25} {:<15} {:<20}".format(*row))
 
@@ -263,43 +348,57 @@ def plot_centralities_power_law_fit(G):
 
     plt.figure(figsize=(18, 5))
     plt.subplot(1, 3, 1)
-    plt.hist(degree_centrality.values(), bins=30, color='skyblue', edgecolor='black')
+    plt.hist(degree_centrality.values(), bins=30, color="skyblue", edgecolor="black")
     plt.title("Dgree Centrality Distribution")
     plt.xlabel("degree Centrality")
     plt.ylabel("frequency")
 
-
     plt.subplot(1, 3, 2)
-    plt.hist(closeness_centrality.values(), bins=30, color='lightgreen', edgecolor='black')
+    plt.hist(
+        closeness_centrality.values(), bins=30, color="lightgreen", edgecolor="black"
+    )
     plt.title("Closeness Centrality Distribution")
     plt.xlabel("closeness Centrality")
     plt.ylabel("frequency")
 
     plt.subplot(1, 3, 3)
-    plt.hist(betweenness_centrality.values(), bins=30, color='lightcoral', edgecolor='black')
+    plt.hist(
+        betweenness_centrality.values(), bins=30, color="lightcoral", edgecolor="black"
+    )
     plt.title("Betweeness Centrality Distribution")
     plt.xlabel("betweenness Centrality")
     plt.ylabel("frequency")
 
     plt.tight_layout()
-    plt.savefig('centralitites.png', dpi=300, bbox_inches='tight')
+    plt.savefig("centralitites.png", dpi=300, bbox_inches="tight")
     plt.show()
 
     plt.figure(figsize=(18, 5))
 
     plt.subplot(1, 3, 1)
-    degree_r2, fit = analyze_power_law(degree_centrality, 'skyblue', 'Degree', 'veryweak evidence for power-law fit')
+    degree_r2, fit = analyze_power_law(
+        degree_centrality, "skyblue", "Degree", "veryweak evidence for power-law fit"
+    )
 
     plt.subplot(1, 3, 2)
-    closeness_r2, fit = analyze_power_law(closeness_centrality, 'lightgreen', 'Closeness', 'very weak evidence for power-law fit')
+    closeness_r2, fit = analyze_power_law(
+        closeness_centrality,
+        "lightgreen",
+        "Closeness",
+        "very weak evidence for power-law fit",
+    )
 
     plt.subplot(1, 3, 3)
-    betwenness_r2, fit = analyze_power_law(betweenness_centrality, 'black', 'Betweenness', 'very weak evidence for power-law fit')
+    betwenness_r2, fit = analyze_power_law(
+        betweenness_centrality,
+        "black",
+        "Betweenness",
+        "very weak evidence for power-law fit",
+    )
 
     plt.tight_layout()
-    plt.savefig('power_law_fits.png', dpi=300, bbox_inches='tight')
+    plt.savefig("power_law_fits.png", dpi=300, bbox_inches="tight")
     plt.show()
-
 
     print("\n\nPower Law Fit R-squared Values:")
     print(f"Degree Centrality: {degree_r2:.3f} --> {fit}")
@@ -316,14 +415,14 @@ def analyze_power_law(centrality_values, color, name, fit):
     log_ranks = np.log10(np.arange(1, len(values) + 1))
 
     slope, intercept, r_value, _, _ = linregress(log_ranks, log_values)
-    r_squared = r_value ** 2
-    if(r_squared > 0.7 and r_squared < 0.85):
+    r_squared = r_value**2
+    if r_squared > 0.7 and r_squared < 0.85:
         fit = "Moderate evidence for power-law fit"
-    elif(r_squared > 0.85):
-        fit  = "Very strong evidence for power-law fit"
+    elif r_squared > 0.85:
+        fit = "Very strong evidence for power-law fit"
 
     plt.scatter(log_ranks, log_values, color=color, alpha=0.6)
-    plt.plot(log_ranks, intercept + slope * log_ranks, 'r-.', linewidth=2)
+    plt.plot(log_ranks, intercept + slope * log_ranks, "r-.", linewidth=2)
     plt.title(f"{name} Centrality (R²={r_squared:.2f})")
     plt.xlabel("Log(Rank)")
     plt.ylabel("Log(Centrality)")
@@ -338,10 +437,12 @@ def analyze_clustering_coefficient_distribution(G):
     plt.figure(figsize=(12, 10))
 
     plt.subplot(2, 2, 1)
-    counts, bins, _ = plt.hist(clustering_coeffs, bins=10, color='skyblue', edgecolor='black')
-    plt.title('Clustering Coefficient Distribution (10 bins)')
-    plt.xlabel('clustering Coefficient')
-    plt.ylabel('frequency')
+    counts, bins, _ = plt.hist(
+        clustering_coeffs, bins=10, color="skyblue", edgecolor="black"
+    )
+    plt.title("Clustering Coefficient Distribution (10 bins)")
+    plt.xlabel("clustering Coefficient")
+    plt.ylabel("frequency")
 
     bin_centers = 0.5 * (bins[1:] + bins[:-1])
     nonzero_indices = counts > 0
@@ -351,48 +452,61 @@ def analyze_clustering_coefficient_distribution(G):
     plt.subplot(2, 2, 2)
     log_x = np.log10(x_nonzero)
     log_y = np.log10(y_nonzero)
-    plt.scatter(log_x, log_y, color='blue', alpha=0.7)
+    plt.scatter(log_x, log_y, color="blue", alpha=0.7)
 
     slope, intercept, r_value, _, _ = linregress(log_x, log_y)
-    power_law_r_squared = r_value ** 2
+    power_law_r_squared = r_value**2
     power_law_fit = intercept + slope * log_x
-    plt.plot(log_x, power_law_fit, 'r-', linewidth=2)
-    plt.title(f'Power Law Fit (log-log) - R² = {power_law_r_squared:.3f}')
-    plt.xlabel('Log(Clustering Coefficient)')
-    plt.ylabel('Log(Frequency)')
+    plt.plot(log_x, power_law_fit, "r-", linewidth=2)
+    plt.title(f"Power Law Fit (log-log) - R² = {power_law_r_squared:.3f}")
+    plt.xlabel("Log(Clustering Coefficient)")
+    plt.ylabel("Log(Frequency)")
 
     def truncated_power_law(x, a, b, c):
-        return a * (x ** b) * np.exp(-c * x)
+        return a * (x**b) * np.exp(-c * x)
 
     plt.subplot(2, 2, 3)
     p0 = [1.0, slope, 0.1]
-    params, covariance = curve_fit(truncated_power_law, x_nonzero, y_nonzero, p0=p0, maxfev=10000)
+    params, covariance = curve_fit(
+        truncated_power_law, x_nonzero, y_nonzero, p0=p0, maxfev=10000
+    )
     a_fit, b_fit, c_fit = params
 
     y_fit = truncated_power_law(x_nonzero, *params)
     residuals = y_nonzero - y_fit
-    ss_res = np.sum(residuals ** 2)
+    ss_res = np.sum(residuals**2)
     ss_tot = np.sum((y_nonzero - np.mean(y_nonzero)) ** 2)
     trunc_power_law_r_squared = 1 - (ss_res / ss_tot)
 
-    plt.scatter(x_nonzero, y_nonzero, color='green', alpha=0.7)
+    plt.scatter(x_nonzero, y_nonzero, color="green", alpha=0.7)
     x_fit = np.linspace(min(x_nonzero), max(x_nonzero), 100)
     y_fit = truncated_power_law(x_fit, *params)
-    plt.plot(x_fit, y_fit, 'r-', linewidth=2)
-    plt.title(f'Truncated Power Law Fit - R² = {trunc_power_law_r_squared:.3f}')
-    plt.xlabel('Clustering Coefficient')
-    plt.ylabel('Frequency')
+    plt.plot(x_fit, y_fit, "r-", linewidth=2)
+    plt.title(f"Truncated Power Law Fit - R² = {trunc_power_law_r_squared:.3f}")
+    plt.xlabel("Clustering Coefficient")
+    plt.ylabel("Frequency")
 
     plt.subplot(2, 2, 4)
-    plt.scatter(log_x, log_y, color='purple', alpha=0.7, label='Data')
-    plt.plot(log_x, power_law_fit, 'r-', linewidth=2, label=f'Power Law (R²={power_law_r_squared:.3f})')
+    plt.scatter(log_x, log_y, color="purple", alpha=0.7, label="Data")
+    plt.plot(
+        log_x,
+        power_law_fit,
+        "r-",
+        linewidth=2,
+        label=f"Power Law (R²={power_law_r_squared:.3f})",
+    )
 
-    log_y_trunc = np.log10(truncated_power_law(10 ** log_x, *params))
-    plt.plot(log_x, log_y_trunc, 'g--', linewidth=2,
-                     label=f'Trunc Power Law (R²={trunc_power_law_r_squared:.3f})')
-    plt.title('Comparison of Fits (log-log)')
-    plt.xlabel('Log(Clustering Coefficient)')
-    plt.ylabel('Log(Frequency)')
+    log_y_trunc = np.log10(truncated_power_law(10**log_x, *params))
+    plt.plot(
+        log_x,
+        log_y_trunc,
+        "g--",
+        linewidth=2,
+        label=f"Trunc Power Law (R²={trunc_power_law_r_squared:.3f})",
+    )
+    plt.title("Comparison of Fits (log-log)")
+    plt.xlabel("Log(Clustering Coefficient)")
+    plt.ylabel("Log(Frequency)")
     plt.legend()
 
     if trunc_power_law_r_squared > power_law_r_squared:
@@ -403,7 +517,7 @@ def analyze_clustering_coefficient_distribution(G):
         better_r2 = power_law_r_squared
 
     plt.tight_layout()
-    plt.savefig('clustering_coefficient_distribution.png', dpi=300, bbox_inches='tight')
+    plt.savefig("clustering_coefficient_distribution.png", dpi=300, bbox_inches="tight")
     plt.show()
 
     print("\nClustering Coefficient Distribution Analysis:")
@@ -420,9 +534,8 @@ def analyze_clustering_coefficient_distribution(G):
         fit_quality = "Weak evidence"
     print(f"{fit_quality} for {better_model.lower()} fit")
 
-
     plt.tight_layout()
-    plt.savefig('clustering_coefficient_distribution.png', dpi=300, bbox_inches='tight')
+    plt.savefig("clustering_coefficient_distribution.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 
@@ -432,7 +545,14 @@ def plot_clustering_coefficient_distribution(G):
     bin_centers = 0.5 * (bins[:-1] + bins[1:])
 
     plt.figure(figsize=(8, 6))
-    plt.bar(bin_centers, hist, width=(bins[1] - bins[0]), color='skyblue', edgecolor='black', alpha=0.7)
+    plt.bar(
+        bin_centers,
+        hist,
+        width=(bins[1] - bins[0]),
+        color="skyblue",
+        edgecolor="black",
+        alpha=0.7,
+    )
     plt.xlabel("Clustering Coefficient")
     plt.ylabel("Probability Density")
     plt.title("Clustering Coefficient Distribution")
@@ -451,24 +571,31 @@ def fit_power_law(bin_centers, hist):
         return -np.inf
 
     slope, intercept, r_value, _, _ = linregress(log_x, log_y)
-    r_squared = r_value ** 2
+    r_squared = r_value**2
 
     plt.figure(figsize=(8, 6))
-    plt.scatter(log_x, log_y, color='blue', label="Data", alpha=0.7)
-    plt.plot(log_x, slope * log_x + intercept, color='red', label=f"Fit: $R^2 = {r_squared:.3f}$")
+    plt.scatter(log_x, log_y, color="blue", label="Data", alpha=0.7)
+    plt.plot(
+        log_x,
+        slope * log_x + intercept,
+        color="red",
+        label=f"Fit: $R^2 = {r_squared:.3f}$",
+    )
     plt.xlabel("Log10(Bin Centers)")
     plt.ylabel("Log10(Frequency)")
     plt.title("Power Law Fit")
     plt.legend()
     plt.show()
 
-    print(f"Power-law fit: slope={slope:.3f}, intercept={intercept:.3f}, R-squared={r_squared:.3f}")
+    print(
+        f"Power-law fit: slope={slope:.3f}, intercept={intercept:.3f}, R-squared={r_squared:.3f}"
+    )
     return r_squared
 
 
 def fit_truncated_power_law(bin_centers, histogram_values):
     def truncated_power_law(clustering_coeff, exponent, decay_rate):
-        return (clustering_coeff ** exponent) * np.exp(-decay_rate * clustering_coeff)
+        return (clustering_coeff**exponent) * np.exp(-decay_rate * clustering_coeff)
 
     valid_data_mask = (bin_centers > 0) & (histogram_values > 0)
     clustering_coeffs = bin_centers[valid_data_mask]
@@ -480,27 +607,32 @@ def fit_truncated_power_law(bin_centers, histogram_values):
 
     try:
         optimal_params, _ = curve_fit(
-            truncated_power_law,
-            clustering_coeffs,
-            frequencies,
-            p0=[-2, 1],
-            maxfev=5000)
+            truncated_power_law, clustering_coeffs, frequencies, p0=[-2, 1], maxfev=5000
+        )
         exponent, decay_rate = optimal_params
 
         predicted_values = truncated_power_law(clustering_coeffs, *optimal_params)
         residual_errors = frequencies - predicted_values
-        sum_squared_residuals = np.sum(residual_errors ** 2)
+        sum_squared_residuals = np.sum(residual_errors**2)
         total_variance = np.sum((frequencies - np.mean(frequencies)) ** 2)
         r_squared = 1 - (sum_squared_residuals / total_variance)
 
         plt.figure(figsize=(8, 6))
-        plt.scatter(clustering_coeffs, frequencies, color='blue',
-                    label="Observed Data", alpha=0.7)
+        plt.scatter(
+            clustering_coeffs,
+            frequencies,
+            color="blue",
+            label="Observed Data",
+            alpha=0.7,
+        )
 
         fit_x_values = np.linspace(min(clustering_coeffs), max(clustering_coeffs), 100)
-        plt.plot(fit_x_values, truncated_power_law(fit_x_values, *optimal_params),
-                 color='green',
-                 label=f"Fit (R²={r_squared:.3f})\nExponent={exponent:.3f}, Decay={decay_rate:.3f}")
+        plt.plot(
+            fit_x_values,
+            truncated_power_law(fit_x_values, *optimal_params),
+            color="green",
+            label=f"Fit (R²={r_squared:.3f})\nExponent={exponent:.3f}, Decay={decay_rate:.3f}",
+        )
 
         plt.xlabel("Clustering Coefficient")
         plt.ylabel("Probability Density")
@@ -537,29 +669,29 @@ def compare_fits(power_r2, truncated_r2):
         print("Inconclusive results.")
 
 
-def detect_communities_louvain(G):
+def detect_communities_louvain(G: nx.Graph):
 
     print("\nNetwork Composition Before Community Detection:")
-    total_nouns = sum(1 for node in G.nodes() if G.nodes[node]['type'] == 'noun')
-    total_adjs = sum(1 for node in G.nodes() if G.nodes[node]['type'] == 'adjectve')
+    total_nouns = sum(1 for node in G.nodes() if G.nodes[node]["type"] == "noun")
+    total_adjs = sum(1 for node in G.nodes() if G.nodes[node]["type"] == "adjectve")
     print(f"Total nodes: {len(G.nodes())} (Nouns: {total_nouns}, Adjs: {total_adjs})")
     print(f"Total edges: {len(G.edges())}")
 
-    mixed_edges = sum(1 for u, v in G.edges()
-                      if G.nodes[u]['type'] != G.nodes[v]['type'])
+    mixed_edges = sum(
+        1 for u, v in G.edges() if G.nodes[u]["type"] != G.nodes[v]["type"]
+    )
     print(f"Noun-Adjective edges: {mixed_edges} ({mixed_edges / len(G.edges()):.1%})")
 
     partition = nx_community.louvain_communities(G, resolution=0.8, seed=42)
 
     print("\nCommunity Analysis:")
 
-
     communities = sorted(partition, key=len, reverse=True)
-    total_communities = len(communities);
+    total_communities = len(communities)
     print("Total no. of communitites: ", total_communities)
     for i, comm in enumerate(communities[:total_communities]):
-        nouns = [n for n in comm if G.nodes[n]['type'] == 'noun']
-        adjs = [a for a in comm if G.nodes[a]['type'] == 'adjectve']
+        nouns = [n for n in comm if G.nodes[n]["type"] == "noun"]
+        adjs = [a for a in comm if G.nodes[a]["type"] == "adjectve"]
 
         print(f"\nCommunity {i + 1} (Size: {len(comm)} nodes)")
         print(f"Nouns: {len(nouns)} ({len(nouns) / len(comm):.1%})")
@@ -578,62 +710,70 @@ def detect_communities_louvain(G):
             else:
                 print("  Balanced noun-adjective community")
 
-
     plt.figure(figsize=(14, 10))
     pos = nx.spring_layout(G, k=0.3, iterations=50, seed=42)
 
+    nx.draw_networkx_edges(G, pos, alpha=0.1, edge_color="lightgray", width=0.5)
 
-    nx.draw_networkx_edges(G, pos, alpha=0.1, edge_color='lightgray', width=0.5)
+    mixed_edges = [
+        (u, v) for u, v in G.edges() if G.nodes[u]["type"] != G.nodes[v]["type"]
+    ]
 
-    mixed_edges = [(u, v) for u, v in G.edges()
-                   if G.nodes[u]['type'] != G.nodes[v]['type']]
     print("Mixed edges: ", len(mixed_edges))
-    nx.draw_networkx_edges(G, pos, edgelist=mixed_edges,
-                           alpha=0.7, edge_color='yellow', width=1)
-
+    nx.draw_networkx_edges(
+        G, pos, edgelist=mixed_edges, alpha=0.7, edge_color="yellow", width=1
+    )
 
     for i, comm in enumerate(communities[:total_communities]):
         nx.draw_networkx_nodes(
-            G, pos, nodelist=list(comm),
+            G,
+            pos,
+            nodelist=list(comm),
             node_size=50,
             node_color=[plt.cm.tab20(i)] * len(comm),
-            label=f'Community {i + 1}'
+            label=f"Community {i + 1}",
         )
 
     top_nodes = sorted(G.degree(), key=lambda x: x[1], reverse=True)[:15]
     nx.draw_networkx_labels(
-        G, pos,
+        G,
+        pos,
         labels={n: n for n, deg in top_nodes},
         font_size=9,
-        bbox=dict(facecolor='white', alpha=0.6, edgecolor='black',  boxstyle='round,pad=0.3')
+        bbox=dict(
+            facecolor="white", alpha=0.6, edgecolor="black", boxstyle="round,pad=0.3"
+        ),
     )
 
-    plt.title("Noun-Adjective Community Structure\n(yellow edges show noun-adjective connections)")
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.title(
+        "Noun-Adjective Community Structure\n(yellow edges show noun-adjective connections)"
+    )
+    plt.legend(bbox_to_anchor=(1.05, 1), loc="upper left")
     plt.tight_layout()
-    plt.axis('off')
+    plt.axis("off")
+    plt.savefig("noun_adj_comm.png")
     plt.show()
 
     return partition
 
-if __name__ == "__main__":
-    file_path = 'divine_comedy.txt'
 
+if __name__ == "__main__":
+    file_path = "divine_comedy.txt"
 
     sentences, top_nouns, top_adjs = process_text(file_path)
 
-    with open('top_nouns.txt', 'w', encoding='utf-8') as f:
-        f.write('\n'.join(top_nouns))
-    with open('top_adjectives.txt', 'w',  encoding='utf-8') as f:
-        f.write('\n'.join(top_adjs))
+    with open("top_nouns.txt", "w", encoding="utf-8") as f:
+        f.write(",\n".join(top_nouns))
+    with open("top_adjectives.txt", "w", encoding="utf-8") as f:
+        f.write(",\n".join(top_adjs))
 
     network = graph_for_adj_noun_occurrence(sentences, top_nouns, top_adjs)
 
-    save_adjacency_matrix(network, 'adjacency_matrix.txt')
+    save_adjacency_matrix(network, "adjacency_matrix.txt")
 
-    visualize_network(network);
-    adj_noun_graph_properties_check(network);
-    network_components_analysis(network);
+    visualize_network(network)
+    adj_noun_graph_properties_check(network)
+    network_components_analysis(network)
     summarize_components(network)
     plot_centralities_power_law_fit(network)
     bin_centers, histogram_vals = plot_clustering_coefficient_distribution(network)

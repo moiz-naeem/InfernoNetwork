@@ -1,4 +1,4 @@
-CANTO I
+ 
 
 
 In the midway of this our mortal life,
@@ -145,7 +145,7 @@ Onward he mov’d, I close his steps pursu’d.
 
 
 
-CANTO II
+ 
 
 
 Now was the day departing, and the air,
@@ -304,7 +304,7 @@ I enter’d on the deep and woody way.
 
 
 
-CANTO III
+ 
 
 
 “Through me you pass into the city of woe:
@@ -453,7 +453,7 @@ Down dropp’d, as one with sudden slumber seiz’d.
 
 
 
-CANTO IV
+ 
 
 
 Broke the deep slumber in my brain a crash
@@ -623,7 +623,7 @@ And to a part I come where no light shines.
 
 
 
-CANTO V
+ 
 
 
 From the first circle I descended thus
@@ -780,7 +780,7 @@ From death, and like a corpse fell to the ground.
 
 
 
-CANTO VI
+ 
 
 
 My sense reviving, that erewhile had droop’d
@@ -914,7 +914,7 @@ Arriv’d, there Plutus, the great foe, we found.
 
 
 
-CANTO VII
+ 
 
 
 “Ah me! O Satan! Satan!” loud exclaim’d
@@ -1064,7 +1064,7 @@ Nor stopp’d, till to a tower’s low base we came.
 
 
 
-CANTO VIII
+ 
 
 
 My theme pursuing, I relate that ere
@@ -1215,7 +1215,7 @@ One whose strong might can open us this land.”
 
 
 
-CANTO IX
+ 
 
 
 The hue, which coward dread on my pale cheeks
@@ -1365,7 +1365,7 @@ Betwixt the afflicted and the ramparts high.
 
 
 
-CANTO X
+ 
 
 
 Now by a secret pathway we proceed,
@@ -1524,7 +1524,7 @@ Which e’en thus high exhal’d its noisome steam.
 
 
 
-CANTO XI
+ 
 
 
 Upon the utmost verge of a high bank,
@@ -1657,7 +1657,7 @@ Is our steep passage down the rocky height.”
 
 
 
-CANTO XII
+ 
 
 
 The place where to descend the precipice
@@ -1816,7 +1816,7 @@ And quitting us, alone repass’d the ford.
 
 
 
-CANTO XIII
+ 
 
 
 Ere Nessus yet had reach’d the other bank,
@@ -1989,7 +1989,7 @@ I slung the fatal noose from my own roof.”
 
 
 
-CANTO XIV
+ 
 
 
 Soon as the charity of native land
@@ -2146,7 +2146,7 @@ For over them all vapour is extinct.”
 
 
 
-CANTO XV
+ 
 
 
 One of the solid margins bears us now
@@ -2294,7 +2294,7 @@ Not he who loses but who gains the prize.
 
 
 
-CANTO XVI
+ 
 
 
 Now came I where the water’s din was heard,
@@ -2447,7 +2447,7 @@ Who upward springing close draws in his feet.
 
 
 
-CANTO XVII
+ 
 
 
 “Lo! the fell monster with the deadly sting!
@@ -2598,7 +2598,7 @@ Sprang forward, like an arrow from the string.
 
 
 
-CANTO XVIII
+ 
 
 
 There is a place within the depths of hell
@@ -2751,7 +2751,7 @@ And seeing this here satiate be our view.”
 
 
 
-CANTO XIX
+ 
 
 
 Woe to thee, Simon Magus! woe to you,
@@ -2907,7 +2907,7 @@ Thence to my view another vale appear’d
 
 
 
-CANTO XX
+ 
 
 
 And now the verse proceeds to torments new,
@@ -3050,7 +3050,7 @@ Of the deep wood.” This said, both onward mov’d.
 
 
 
-CANTO XXI
+ 
 
 
 Thus we from bridge to bridge, with other talk,
@@ -3209,7 +3209,7 @@ Which he with sound obscene triumphant gave.
 
 
 
-CANTO XXII
+ 
 
 
 It hath been heretofore my chance to see
@@ -3381,7 +3381,7 @@ And we departing left them to that broil.
 
 
 
-CANTO XXIII
+ 
 
 
 In silence and in solitude we went,
@@ -3559,7 +3559,7 @@ And following, his beloved footsteps mark’d.
 
 
 
-CANTO XXIV
+ 
 
 
 In the year’s early nonage, when the sun
@@ -3724,7 +3724,7 @@ This have I told, that grief may rend thy heart.”
 
 
 
-CANTO XXV
+ 
 
 
 When he had spoke, the sinner rais’d his hands
@@ -3877,7 +3877,7 @@ The other’s fate, Gaville, still dost rue.
 
 
 
-CANTO XXVI
+ 
 
 
 Florence exult! for thou so mightily
@@ -4028,7 +4028,7 @@ And over us the booming billow clos’d.”
 
 
 
-CANTO XVII
+ 
 
 
 Now upward rose the flame, and still’d its light
@@ -4179,7 +4179,7 @@ Of those, who load them with committed sin.
 
 
 
-CANTO XXVIII
+ 
 
 
 Who, e’en in words unfetter’d, might at full
@@ -4334,7 +4334,7 @@ Of retribution fiercely works in me.”
 
 
 
-CANTO XXIX
+ 
 
 
 So were mine eyes inebriate with view
@@ -4493,7 +4493,7 @@ Creative nature by my subtle art.”
 
 
 
-CANTO XXX
+ 
 
 
 What time resentment burn’d in Juno’s breast
@@ -4657,7 +4657,7 @@ Such wrangling is a joy for vulgar minds.”
 
 
 
-CANTO XXXI
+ 
 
 
 The very tongue, whose keen reproof before
@@ -4809,7 +4809,7 @@ But rose as in a bark the stately mast.
 
 
 
-CANTO XXXII
+ 
 
 
 Could I command rough rhimes and hoarse, to suit
@@ -4964,7 +4964,7 @@ If that wherewith I speak be moist so long.”
 
 
 
-CANTO XXXIII
+ 
 
 
 His jaws uplifting from their fell repast,
@@ -5136,7 +5136,7 @@ In body still alive upon the earth.
 
 
 
-CANTO XXXIV
+ 
 
 
 “The banners of Hell’s Monarch do come forth
@@ -5286,10 +5286,6 @@ Thus issuing we again beheld the stars.
 
 PURGATORY
 
-
-
-
-CANTO I
 
 
 O’er better waves to speed her rapid course
@@ -5443,11 +5439,6 @@ Wherever one was pluck’d, another there
 Resembling, straightway in its place arose.
 
 
-
-
-CANTO II
-
-
 Now had the sun to that horizon reach’d,
 That covers, with the most exalted point
 Of its meridian circle, Salem’s walls,
@@ -5591,7 +5582,7 @@ Nor with less hurried step did we depart.
 
 
 
-CANTO III
+ 
 
 
 Them sudden flight had scatter’d over the plain,
@@ -5751,7 +5742,7 @@ By means of those below much profit comes.”
 
 
 
-CANTO IV
+ 
 
 
 When by sensations of delight or pain,
@@ -5903,7 +5894,7 @@ Now covers with her foot Marocco’s shore.”
 
 
 
-CANTO V
+ 
 
 
 Now had I left those spirits, and pursued
@@ -6045,7 +6036,7 @@ Who me with jewell’d ring had first espous’d.”
 
 
 
-CANTO VI
+ 
 
 
 When from their game of dice men separate,
@@ -6205,7 +6196,7 @@ Shifting her side, short respite seeks from pain.
 
 
 
-CANTO VII
+ 
 
 
 After their courteous greetings joyfully
@@ -6349,7 +6340,7 @@ Makes Conferrat and Canavese weep.”
 
 
 
-CANTO VIII
+ 
 
 
 Now was the hour that wakens fond desire
@@ -6495,7 +6486,7 @@ If the sure course of judgment be not stay’d.”
 
 
 
-CANTO IX
+ 
 
 
 Now the fair consort of Tithonus old,
@@ -6641,7 +6632,7 @@ Come swelling, now float indistinct away.
 
 
 
-CANTO X
+ 
 
 
 When we had passed the threshold of the gate
@@ -6777,7 +6768,7 @@ Wailing exclaim’d: “I can endure no more.”
 
 
 
-CANTO XI
+ 
 
 
 “O thou Almighty Father, who dost make
@@ -6932,7 +6923,7 @@ This is the work, that from these limits freed him.”
 
 
 
-CANTO XII
+ 
 
 
 With equal pace as oxen in the yoke,
@@ -7081,7 +7072,7 @@ The leader, as he mark’d mine action, smil’d.
 
 
 
-CANTO XIII
+ 
 
 
 We reach’d the summit of the scale, and stood
@@ -7249,7 +7240,7 @@ Their navies, more than ruin’d hopes shall mourn.”
 
 
 
-CANTO XIV
+ 
 
 
 “Say who is he around our mountain winds,
@@ -7418,7 +7409,7 @@ Therefore He smites you who discerneth all.”
 
 
 
-CANTO XV
+ 
 
 
 As much as ’twixt the third hour’s close and dawn,
@@ -7580,7 +7571,7 @@ Bereft us, both of sight and the pure air.
 
 
 
-CANTO XVI
+ 
 
 
 Hell’s dunnest gloom, or night unlustrous, dark,
@@ -7745,7 +7736,7 @@ Appear.” He said, and would not hear me more.
 
 
 
-CANTO XVII
+ 
 
 
 Call to remembrance, reader, if thou e’er
@@ -7898,7 +7889,7 @@ Expect not, fitter for thine own research.”
 
 
 
-CANTO XVIII
+ 
 
 
 The teacher ended, and his high discourse
@@ -8052,7 +8043,7 @@ Was clos’d, and meditation chang’d to dream.
 
 
 
-CANTO XIX
+ 
 
 
 It was the hour, when of diurnal heat
@@ -8213,7 +8204,7 @@ And she is all remaineth of me there.”
 
 
 
-CANTO XX
+ 
 
 
 Ill strives the will, ’gainst will more wise that strives
@@ -8371,7 +8362,7 @@ So on I far’d in thoughtfulness and dread.
 
 
 
-CANTO XXI
+ 
 
 
 The natural thirst, ne’er quench’d but from the well,
@@ -8520,7 +8511,7 @@ And as a substance treat an empty shade.”
 
 
 
-CANTO XXII
+ 
 
 
 Now we had left the angel, who had turn’d
@@ -8681,7 +8672,7 @@ And greatness, which the’ Evangelist records.”
 
 
 
-CANTO XXIII
+ 
 
 
 On the green leaf mine eyes were fix’d, like his
@@ -8823,7 +8814,7 @@ Through every pendent cliff and rocky bound.”
 
 
 
-CANTO XXIV
+ 
 
 
 Our journey was not slacken’d by our talk,
@@ -8997,7 +8988,7 @@ Still hung’ring as the rule of temperance wills.”
 
 
 
-CANTO XXV
+ 
 
 
 It was an hour, when he who climbs, had need
@@ -9145,7 +9136,7 @@ To medicine the wound, that healeth last.
 
 
 
-CANTO XXVI
+ 
 
 
 While singly thus along the rim we walk’d,
@@ -9299,7 +9290,7 @@ He disappear’d in the refining flame.
 
 
 
-CANTO XXVII
+ 
 
 
 Now was the sun so station’d, as when first
@@ -9458,7 +9449,7 @@ With crown and mitre, sovereign o’er thyself.”
 
 
 
-CANTO XXVIII
+ 
 
 
 Through that celestial forest, whose thick shade
@@ -9621,7 +9612,7 @@ Again directed to the lovely dame.
 
 
 
-CANTO XXIX
+ 
 
 
 Singing, as if enamour’d, she resum’d
@@ -9790,7 +9781,7 @@ With the first ensigns, made they solemn halt.
 
 
 
-CANTO XXX
+ 
 
 
 Soon as the polar light, which never knows
@@ -9951,7 +9942,7 @@ Without the cost of some repentant tear.”
 
 
 
-CANTO XXXI
+ 
 
 
 “O Thou!” her words she thus without delay
@@ -10112,7 +10103,7 @@ Thou gav’st to open air thy charms reveal’d.
 
 
 
-CANTO XXXII
+ 
 
 
 Mine eyes with such an eager coveting,
@@ -10283,7 +10274,7 @@ Shielded the harlot and the new-form’d brute.
 
 
 
-CANTO XXXIII
+ 
 
 
 “The heathen, Lord! are come!” responsive thus,
@@ -10445,7 +10436,7 @@ PARADISE
 
 
 
-CANTO I
+ 
 
 
 His glory, by whose might all things are mov’d,
@@ -10598,7 +10589,7 @@ So said, she turn’d toward the heav’n her face.
 
 
 
-CANTO II
+ 
 
 
 All ye, who in small bark have following sail’d,
@@ -10761,7 +10752,7 @@ Proportion’d to its power, the dusk or clear.”
 
 
 
-CANTO III
+ 
 
 
 That sun, which erst with love my bosom warm’d
@@ -10910,7 +10901,7 @@ Whence I to question her became less prompt.
 
 
 
-CANTO IV
+ 
 
 
 Between two kinds of food, both equally
@@ -11062,7 +11053,7 @@ I turn’d, and downward bent confus’d my sight.
 
 
 
-CANTO V
+ 
 
 
 “If beyond earthly wont, the flame of love
@@ -11211,7 +11202,7 @@ E’en as the tenour of my song declares.
 
 
 
-CANTO VI
+ 
 
 
 “After that Constantine the eagle turn’d
@@ -11367,7 +11358,7 @@ The heart he had, begging his life by morsels,
 
 
 
-CANTO VII
+ 
 
 
 “Hosanna Sanctus Deus Sabaoth
@@ -11525,7 +11516,7 @@ When both our parents at the first were made.”
 
 
 
-CANTO VIII
+ 
 
 
 The world was in its day of peril dark
@@ -11697,7 +11688,7 @@ Therefore your steps have wander’d from the paths.”
 
 
 
-CANTO IX
+ 
 
 
 After solution of my doubt, thy Charles,
@@ -11846,7 +11837,7 @@ Shall be deliver’d from the adult’rous bond.”
 
 
 
-CANTO X
+ 
 
 
 Looking into his first-born with the love,
@@ -11999,7 +11990,7 @@ It can be known but where day endless shines.
 
 
 
-CANTO XI
+ 
 
 
 O fond anxiety of mortal men!
@@ -12141,7 +12132,7 @@ Nor miss of the reproof, which that implies,
 
 
 
-CANTO XII
+ 
 
 
 Soon as its final word the blessed flame
@@ -12285,7 +12276,7 @@ So worthy, and with me have mov’d this throng.”
 
 
 
-CANTO XIII
+ 
 
 
 Let him, who would conceive what now I saw,
@@ -12436,7 +12427,7 @@ For one of these may rise, the other fall.”
 
 
 
-CANTO XIV
+ 
 
 
 From centre to the circle, and so back
@@ -12583,7 +12574,7 @@ Which grows in transport as we mount aloof.
 
 
 
-CANTO XV
+ 
 
 
 True love, that ever shows itself as clear
@@ -12737,7 +12728,7 @@ And from the martyrdom came to this peace.”
 
 
 
-CANTO XVI
+ 
 
 
 O slight respect of man’s nobility!
@@ -12897,7 +12888,7 @@ Or through division been with vermeil dyed.”
 
 
 
-CANTO XVII
+ 
 
 
 Such as the youth, who came to Clymene
@@ -13044,7 +13035,7 @@ Be palpable, and proof apparent urge.”
 
 
 
-CANTO XVIII
+ 
 
 
 Now in his word, sole, ruminating, joy’d
@@ -13189,7 +13180,7 @@ I wist not of the fisherman nor Paul.”
 
 
 
-CANTO XIX
+ 
 
 
 Before my sight appear’d, with open wings,
@@ -13346,7 +13337,7 @@ Who keepeth even footing with the rest.”
 
 
 
-CANTO XX
+ 
 
 
 When, disappearing, from our hemisphere,
@@ -13499,7 +13490,7 @@ Their beamy circlets, dancing to the sounds.
 
 
 
-CANTO XXI
+ 
 
 
 Again mine eyes were fix’d on Beatrice,
@@ -13642,7 +13633,7 @@ Wist what it spake, so deaf’ning was the thunder.”
 
 
 
-CANTO XXII
+ 
 
 
 Astounded, to the guardian of my steps
@@ -13807,7 +13798,7 @@ Then to the beauteous eyes mine eyes return’d.
 
 
 
-CANTO XXIII
+ 
 
 
 E’en as the bird, who midst the leafy bower
@@ -13959,7 +13950,7 @@ To whom the keys of glory were assign’d.
 
 
 
-CANTO XXIV
+ 
 
 
 “O ye! in chosen fellowship advanc’d
@@ -14127,7 +14118,7 @@ Had op’d lips; so well their answer pleas’d.
 
 
 
-CANTO XXV
+ 
 
 
 If e’er the sacred poem that hath made
@@ -14281,7 +14272,7 @@ Not distant, on the happy coast she stood.
 
 
 
-CANTO XXVI
+ 
 
 
 With dazzled eyes, whilst wond’ring I remain’d,
@@ -14435,7 +14426,7 @@ From the first hour, to that which cometh next
 
 
 
-CANTO XXVII
+ 
 
 
 Then “Glory to the Father, to the Son,
@@ -14584,7 +14575,7 @@ Expected long, shall crown at last the bloom!”
 
 
 
-CANTO XXVIII
+ 
 
 
 So she who doth imparadise my soul,
@@ -14722,7 +14713,7 @@ From an eye-witness to heav’n’s mysteries.”
 
 
 
-CANTO XXIX
+ 
 
 
 No longer than what time Latona’s twins
@@ -14882,7 +14873,7 @@ Whole in itself and one, as at the first.”
 
 
 
-CANTO XXX
+ 
 
 
 Noon’s fervid hour perchance six thousand miles
@@ -15040,7 +15031,7 @@ Will sink beneath him: such will be his meed.”
 
 
 
-CANTO XXXI
+ 
 
 
 In fashion, as a snow-white rose, lay then
@@ -15186,7 +15177,7 @@ Ardour into my breast, unfelt before.
 
 
 
-CANTO XXXII
+ 
 
 
 Freely the sage, though wrapt in musings high,
@@ -15331,7 +15322,7 @@ And thus the saintly orison began.
 
 
 
-CANTO XXXIII
+ 
 
 
 “O virgin mother, daughter of thy Son,
