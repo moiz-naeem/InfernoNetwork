@@ -49,6 +49,7 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
         "hence",  # not a noun nor adjective
         "aught",  # not a noun nor adjective
         "rous",
+        "such",
     }
 
     for word, pos in tagged_pos:
@@ -131,7 +132,7 @@ def read_clean_text(word_list):
 def process_text(file_path):
     lines = []
     # clean each line separately, lines are needed later
-    with open(file_path, "r", encoding='utf-8') as text:
+    with open(file_path, "r", encoding="utf-8") as text:
         for line in text:
             line = read_clean_text(line.split())
             if line == "":
@@ -765,7 +766,7 @@ def relation_evolution(file_path, top_nouns, top_adjs):
     noun_adj = []
     adj_adj = []
 
-    with open(file_path, "r", encoding='utf-8') as text:
+    with open(file_path, "r", encoding="utf-8") as text:
         for line in text:
             line = read_clean_text(line.split())
             if line == "":
