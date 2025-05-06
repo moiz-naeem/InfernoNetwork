@@ -19,7 +19,7 @@ nltk.download("stopwords")
 
 
 def extract_using_tag(tagged_pos, tag, p_o_s):
-    lammatizer = WordNetLemmatizer()
+    lemmatizer = WordNetLemmatizer()
     words = []
 
     noise = {
@@ -48,15 +48,16 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
         "thence",  # not a noun nor adjective
         "hence",  # not a noun nor adjective
         "aught",  # not a noun nor adjective
-        "rous",
-        "such",
+        "rous",  # part of a adjective e.g. thund'rous
+        "such",  # not an adjective
+        "spake",  # archaic for spoke, a verb
     }
 
     for word, pos in tagged_pos:
         word = word.lower()
         if pos != tag or word in noise:
             continue
-        lemma = lammatizer.lemmatize(word, pos=p_o_s)
+        lemma = lemmatizer.lemmatize(word, pos=p_o_s)
 
         words.append(lemma)
     return words
@@ -64,10 +65,9 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
 
 def read_clean_text(word_list):
     for i in range(len(word_list)):
-        # case doesnt matter
-        current_word = word_list[i].lower()
+        current_word = word_list[i]
         # strip all possbile endings
-        cleaned_word = current_word.strip("“”;,.?!;:")
+        cleaned_word = current_word.strip("“”;,.?!;:").lower()
 
         if cleaned_word == "thou" or cleaned_word == "thee":
             cleaned_word = "you"
@@ -102,6 +102,10 @@ def read_clean_text(word_list):
         elif cleaned_word == "mary":
             cleaned_word = "Mary"
 
+        # check case of the word
+        if current_word[0].isupper():
+            cleaned_word = cleaned_word.capitalize()
+
         # Add the original end to the word
         if "," in current_word:
             word_list[i] = cleaned_word + ","
@@ -134,9 +138,9 @@ def process_text(file_path):
     # clean each line separately, lines are needed later
     with open(file_path, "r", encoding="utf-8") as text:
         for line in text:
-            line = read_clean_text(line.split())
             if line == "":
                 continue
+            line = read_clean_text(line.split())
             lines.append(line)
 
     # join lines to tokenize
@@ -174,7 +178,7 @@ def graph_for_adj_noun_occurrence(lines, top_nouns, top_adjs):
     print(f"Overlap between adj and nouns: {overlaps}")
 
     for i in range(len(lines)):
-        words = nltk.tokenize.word_tokenize(lines[i].lower())
+        words = nltk.tokenize.word_tokenize(lines[i])
 
         # there are duplicates in both classes, need to change the name of the node
         line_nouns = [f"noun_{word}" for word in set(words) & set(top_nouns)]
