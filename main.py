@@ -192,11 +192,9 @@ def graph_for_adj_noun_occurrence(lines, top_nouns, top_adjs):
             for word2 in line_words:
                 if word1 != word2:
                     if G.has_edge(word1, word2):
-                        continue
-                        # G[word1][word2]["weight"] += 1
+                        G[word1][word2]["weight"] += 1
                     else:
-                        # G.add_edge(word1, word2, weight=1)
-                        G.add_edge(word1, word2)
+                        G.add_edge(word1, word2, weight=1)
 
     # write to gephi file
     nx.write_gexf(G, "noun_adj.gexf")
