@@ -51,6 +51,8 @@ def extract_using_tag(tagged_pos, tag, p_o_s):
         "rous",  # part of a adjective e.g. thund'rous
         "such",  # not an adjective
         "spake",  # archaic for spoke, a verb
+        "mine",  # not noun nor adj
+        "ken",  # pronoun
     }
 
     for word, pos in tagged_pos:
@@ -67,16 +69,24 @@ def read_clean_text(word_list):
     for i in range(len(word_list)):
         current_word = word_list[i]
         # strip all possbile endings
-        cleaned_word = current_word.strip("“”;,.?!;:").lower()
+        cleaned_word: str = current_word.strip("“”;,.?!;:").lower()
 
         if cleaned_word == "thou" or cleaned_word == "thee":
             cleaned_word = "you"
-        elif cleaned_word == "thy" or cleaned_word == "thine":
+        elif cleaned_word == "thine":
             cleaned_word = "yours"
-        elif cleaned_word == "e’en":
-            cleaned_word = "even"
+        elif cleaned_word == "thy":
+            cleaned_word = "your"
         elif cleaned_word == "ye":
             cleaned_word = "you"
+        elif cleaned_word == "e’en":
+            cleaned_word = "even"
+        elif cleaned_word == "e’er":
+            cleaned_word = "ever"
+        elif cleaned_word == "o’er":
+            cleaned_word = "over"
+        elif cleaned_word == "heav’n":
+            cleaned_word = "heaven"
         elif cleaned_word == "oft":
             cleaned_word = "often"
         elif cleaned_word == "hath":
@@ -85,22 +95,11 @@ def read_clean_text(word_list):
             cleaned_word = "look"
         elif cleaned_word == "doth":
             cleaned_word = "do"
-        elif cleaned_word == "nam’d":
-            cleaned_word = "named"
-        elif cleaned_word == "rous’d":
-            cleaned_word = "roused"
-        elif cleaned_word == "urg’d":
-            cleaned_word = "urged"
-        elif cleaned_word == "mov’d":
-            cleaned_word = "moved"
-        elif cleaned_word == "heav’n":
-            cleaned_word = "heaven"
-        elif cleaned_word == "enter’d":
-            cleaned_word = "entered"
-        elif cleaned_word == "fix’d":
-            cleaned_word = "fixed"
-        elif cleaned_word == "mary":
-            cleaned_word = "Mary"
+        elif cleaned_word == "’gainst":
+            cleaned_word = "against"
+        elif cleaned_word.endswith("’d"):
+            start = cleaned_word.split("’")[0]
+            cleaned_word = start + "ed"
 
         # check case of the word
         if current_word[0].isupper():
@@ -146,6 +145,10 @@ def process_text(file_path):
     # join lines to tokenize
     read = "\n".join(lines)
 
+    with open("cleaned.txt", "w") as new:
+        new.write(read)
+        new.close()
+
     all_word_token = nltk.tokenize.word_tokenize(read)
 
     words_token_tagged_by_pos = nltk.pos_tag(all_word_token)
@@ -189,9 +192,14 @@ def graph_for_adj_noun_occurrence(lines, top_nouns, top_adjs):
             for word2 in line_words:
                 if word1 != word2:
                     if G.has_edge(word1, word2):
-                        G[word1][word2]["weight"] += 1
+                        continue
+                        # G[word1][word2]["weight"] += 1
                     else:
-                        G.add_edge(word1, word2, weight=1)
+                        # G.add_edge(word1, word2, weight=1)
+                        G.add_edge(word1, word2)
+
+    # write to gephi file
+    nx.write_gexf(G, "noun_adj.gexf")
     return G
 
 
@@ -208,12 +216,13 @@ def visualize_network(G: nx.Graph):
     nx.draw_networkx_nodes(
         G, pos, nodelist=adjs, node_color="green", node_size=500, alpha=0.8
     )
-    edges = [(u, v) for u, v, d in G.edges(data=True) if d["weight"] > 1]
+    # edges = [(u, v) for u, v, d in G.edges(data=True) if d["weight"] > 1]
+    edges = [(u, v) for u, v, d in G.edges(data=True)]
     nx.draw_networkx_edges(G, pos, edgelist=edges, width=1.0, alpha=0.2)
 
     degrees = dict(G.degree())
-    top_nodes = {node: node for node, deg in degrees.items() if deg > 2}
-    nx.draw_networkx_labels(G, pos, labels=top_nodes, font_size=10, font_weight="bold")
+    top_nodes = {node: node for node, deg in degrees.items()}
+    nx.draw_networkx_labels(G, pos, labels=top_nodes, font_size=8, font_weight="bold")
 
     plt.title("Noun-Adjective Co-occurrence Network", fontsize=16)
     plt.axis("off")
