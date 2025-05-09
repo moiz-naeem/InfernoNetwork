@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import nltk
 import networkx as nx
 
-from req_2_graph_and_visualization import save_adjacency_matrix, visualize_network
+from req_2_graph_and_visualization import save_adjacency_matrix
 from req_3_basic_SNA import adj_noun_graph_properties_check
 
 
@@ -96,26 +96,7 @@ def random_prim_st(G: nx.Graph, terminals):
     return P
 
 
-def find_steiner_tree(G: nx.Graph):
-    save_adjacency_matrix(G, "recon_adjacency_matrix.txt")
-
-    # 10 highest degree nodes
-    sorted10 = dict(
-        sorted(
-            dict(nx.degree(G)).items(),
-            key=lambda item: item[1],
-            reverse=True,
-        )[:10]
-    )
-    terminals = list(sorted10.keys())
-    print(terminals)
-
-    steiner = random_prim_st(G, terminals)
-
-    print("________________________________")
-    print("Steiner Graph")
-    adj_noun_graph_properties_check(steiner)
-
+def visualize_steiner(steiner, terminals, filename, title):
     pos = nx.spring_layout(steiner)
 
     plt.figure(figsize=(12, 12))
@@ -127,7 +108,47 @@ def find_steiner_tree(G: nx.Graph):
     nx.draw(steiner, pos, node_color=node_colors, node_size=100)
     nx.draw_networkx_labels(steiner, pos, font_size=8, font_weight="bold")
 
-    plt.title("Steiner tree, 10 highest degree nodes as terminals", fontsize=16)
+    plt.title(title, fontsize=16)
     plt.axis("off")
-    plt.savefig("steiner_tree.png", dpi=300, bbox_inches="tight")
+    plt.savefig(filename, dpi=300, bbox_inches="tight")
     plt.close()
+
+
+def find_steiner_tree(G: nx.Graph):
+    save_adjacency_matrix(G, "recon_adjacency_matrix.txt")
+
+    # 20 highest degree cent nodes
+    top = dict(
+        sorted(
+            nx.degree_centrality(G).items(),
+            key=lambda item: item[1],
+            reverse=True,
+        )[:20]
+    )
+    terminals = list(top.keys())
+
+    steiner = random_prim_st(G, terminals)
+
+    print("________________________________")
+    print("Random Steiner Graph")
+    adj_noun_graph_properties_check(steiner)
+
+    min_steiner = nx.approximation.steiner_tree(G, terminals)
+
+    print("________________________________")
+    print("Minimum Steiner Graph")
+    adj_noun_graph_properties_check(min_steiner)
+
+    visualize_steiner(
+        steiner,
+        terminals,
+        "rand_steiner.png",
+        "Random Steiner tree for 20 highest degree centrality nodes",
+    )
+
+    visualize_steiner(
+        min_steiner,
+        terminals,
+        "min_steiner.png",
+        "Minimum Steiner tree for 20 highest degree centrality nodes",
+    )

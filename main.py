@@ -51,6 +51,7 @@ if __name__ == "__main__":
 
     # requirement 8
     bin_centers, histogram_vals = plot_clustering_coefficient_distribution(network)
+    # Do these do anything?
     power_r2 = fit_power_law(bin_centers, histogram_vals)
     truncated_r2 = fit_truncated_power_law(bin_centers, histogram_vals)
     compare_fits(power_r2, truncated_r2)
