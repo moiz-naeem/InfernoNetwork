@@ -10,17 +10,11 @@ from req_3_basic_SNA import adj_noun_graph_properties_check
 def reconstruct_weighted(lines, top_nouns, top_adjs):
     G = nx.Graph()
 
-    overlaps = 0
-
     for noun in top_nouns:
         G.add_node(f"noun_{noun}", type="noun")
-        if noun in top_adjs:
-            overlaps += 1
 
     for adj in top_adjs:
         G.add_node(f"adj_{adj}", type="adjective")
-
-    print(f"Overlap between adj and nouns: {overlaps}")
 
     for i in range(len(lines)):
         words = nltk.tokenize.word_tokenize(lines[i])
@@ -129,15 +123,15 @@ def find_steiner_tree(G: nx.Graph):
 
     steiner = random_prim_st(G, terminals)
 
-    print("________________________________")
-    print("Random Steiner Graph")
-    adj_noun_graph_properties_check(steiner)
+    # print("________________________________")
+    # print("Random Steiner Graph")
+    # adj_noun_graph_properties_check(steiner)
 
     min_steiner = nx.approximation.steiner_tree(G, terminals)
 
-    print("________________________________")
-    print("Minimum Steiner Graph")
-    adj_noun_graph_properties_check(min_steiner)
+    # print("________________________________")
+    # print("Minimum Steiner Graph")
+    # adj_noun_graph_properties_check(min_steiner)
 
     visualize_steiner(
         steiner,

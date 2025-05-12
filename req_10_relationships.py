@@ -47,31 +47,30 @@ def relation_evolution(file_path, top_nouns, top_adjs):
             noun_adj[i] += noun_adj[(i - 1)]
             adj_adj[i] += adj_adj[(i - 1)]
 
-    # Plot the relationships
-    plt.figure(figsize=(18, 15))
-
-    # Plot noun-noun relationships
-    plt.subplot(3, 1, 1)
+    plt.figure(figsize=(12, 12))
     plt.plot(range(len(lines)), noun_noun, "r-", linewidth=1.5)
     plt.title("Noun-Noun Relationships", fontsize=16)
     plt.ylabel("Number of Relationships")
     plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig("n-n_evolution.png", dpi=300, bbox_inches="tight")
+    plt.close()
 
-    # Plot noun-adj relationships
-    plt.subplot(3, 1, 2)
+    plt.figure(figsize=(12, 12))
     plt.plot(range(len(lines)), noun_adj, "g-", linewidth=1.5)
     plt.title("Noun-Adjective Relationships", fontsize=16)
     plt.ylabel("Number of Relationships")
     plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig("n-a_evolution.png", dpi=300, bbox_inches="tight")
+    plt.close()
 
-    # Plot adj-adj relationships
-    plt.subplot(3, 1, 3)
+    plt.figure(figsize=(12, 12))
     plt.plot(range(len(lines)), adj_adj, "b-", linewidth=1.5)
     plt.title("Adjective-Adjective Relationships", fontsize=16)
     plt.xlabel("Line Number")
     plt.ylabel("Number of Relationships")
     plt.grid(True, alpha=0.3)
-
     plt.tight_layout()
-    plt.savefig("relationship_evolution.png", dpi=300, bbox_inches="tight")
+    plt.savefig("a-a_evolution.png", dpi=300, bbox_inches="tight")
     plt.close()
