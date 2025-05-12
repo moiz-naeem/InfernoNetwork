@@ -1,3 +1,23 @@
+import networkx as nx
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import linregress
+from scipy.optimize import curve_fit
+
+
+def compare_fits(power_r2, truncated_r2):
+    print("\nModel Fit Comparison:")
+    print(f"Power-law R²: {power_r2:.4f}")
+    print(f"Truncated Power-law R²: {truncated_r2:.4f}")
+
+    if power_r2 > truncated_r2:
+        print("Power-law fit is better.")
+    elif truncated_r2 > power_r2:
+        print("Truncated power-law fit is better.")
+    else:
+        print("Both fits are equally good.")
+
+
 def analyze_clustering_coefficient_distribution(G):
     clustering_coeffs = list(nx.clustering(G).values())
 

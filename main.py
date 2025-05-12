@@ -10,10 +10,7 @@ from req_4_5_components import network_components_analysis, summarize_components
 from req_6_7_centralities import plot_centralities_power_law_fit
 from req_8_clustering_coeff import (
     analyze_clustering_coefficient_distribution,
-    compare_fits,
-    fit_power_law,
-    fit_truncated_power_law,
-    plot_clustering_coefficient_distribution,
+    compare_fits
 )
 from req_9_community import detect_communities_louvain
 from req_10_relationships import relation_evolution
