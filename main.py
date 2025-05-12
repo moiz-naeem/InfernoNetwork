@@ -1,4 +1,3 @@
-from req_11_steiner import find_steiner_tree, reconstruct_weighted
 from req_1_text_processing import process_text
 from req_2_graph_and_visualization import (
     graph_for_adj_noun_occurrence,
@@ -17,6 +16,7 @@ from req_8_clustering_coeff import (
 )
 from req_9_community import detect_communities_louvain
 from req_10_relationships import relation_evolution
+from req_11_steiner import find_steiner_tree, reconstruct_weighted
 
 
 if __name__ == "__main__":
@@ -28,6 +28,18 @@ if __name__ == "__main__":
         f.write(",\n".join(top_nouns))
     with open("top_adjectives.txt", "w", encoding="utf-8") as f:
         f.write(",\n".join(top_adjs))
+
+    sections = ["HELL", "PURGATORY", "PARADISE"]
+    section_adjs = []
+
+    for sec in sections:
+        file_path = f"{sec}.txt"
+        _, top_nouns_sec, top_adjs_sec = process_text(file_path)
+
+        sec_adjs = list(set(top_adjs) & set(top_adjs_sec))
+        sec_nouns = list(set(top_nouns) & set(top_nouns_sec))
+
+        section_adjs.append(sec_adjs)
 
     # requirement 2
     network = graph_for_adj_noun_occurrence(lines, top_nouns, top_adjs)
@@ -58,6 +70,18 @@ if __name__ == "__main__":
 
     # requirement 9
     partition = detect_communities_louvain(network)
+
+    comms = [comm for comm in partition]
+
+    for i, comm in enumerate(comms):
+        # each section is one of the elements
+        counts = [0, 0, 0]
+        for adj in section_adjs[i]:
+            comm_i = network.nodes[f"adj_{adj}"]["modularity_class"][4]
+            counts[int(comm_i)] += 1
+
+        # shows the common adjectives between this community and each of the sections
+        print(f"Community {i}: {counts}")
 
     # requirement 10
     relation_evolution(file_path, top_nouns, top_adjs)

@@ -27,6 +27,10 @@ def detect_communities_louvain(G: nx.Graph):
         nouns = [n for n in comm if G.nodes[n]["type"] == "noun"]
         adjs = [a for a in comm if G.nodes[a]["type"] == "adjective"]
 
+        # for gephi
+        for node in comm:
+            G.nodes[node]["modularity_class"] = f"comm{i}"
+
         print(f"\nCommunity {i + 1} (Size: {len(comm)} nodes)")
         print(f"Nouns: {len(nouns)} ({len(nouns) / len(comm):.1%})")
         print(f"Adjs: {len(adjs)} ({len(adjs) / len(comm):.1%})")
@@ -43,6 +47,9 @@ def detect_communities_louvain(G: nx.Graph):
                 print("  Strongly adjective-dominated community")
             else:
                 print("  Balanced noun-adjective community")
+
+    # write to gephi file
+    nx.write_gexf(G, "communities.gexf")
 
     plt.figure(figsize=(14, 10))
     pos = nx.spring_layout(G, k=0.3, iterations=50, seed=42)
