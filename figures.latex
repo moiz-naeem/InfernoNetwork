@@ -1,0 +1,97 @@
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/adj_adj_relationships.png}
+    \caption{Cumulative Adjective-Adjective Relationships}
+    \label{fig:adj_adj_relationships}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/betweenness_centrality_distribution.png}
+    \caption{Betweenness Centrality Distribution}
+    \label{fig:betweenness_centrality_distribution}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/betweenness_power_law_fit.png}
+    \caption{Power Law Fit for Betweenness Centrality}
+    \label{fig:betweenness_power_law_fit}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/closeness_centrality_distribution.png}
+    \caption{Closeness Centrality Distribution}
+    \label{fig:closeness_centrality_distribution}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/closeness_power_law_fit.png}
+    \caption{Power Law Fit for Closeness Centrality}
+    \label{fig:closeness_power_law_fit}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/clustering_histogram.png}
+    \caption{Clustering Coefficient Histogram}
+    \label{fig:clustering_histogram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/degree_centrality_distribution.png}
+    \caption{Degree Centrality Distribution}
+    \label{fig:degree_centrality_distribution}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/degree_power_law_fit.png}
+    \caption{Power Law Fit for Degree Centrality}
+    \label{fig:degree_power_law_fit}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/min_steiner.png}
+    \caption{Minimum Steiner Tree on the Network}
+    \label{fig:min_steiner}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/noun_adj_comm.png}
+    \caption{Community Detection in the Adjective-Noun Network}
+    \label{fig:noun_adj_comm}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/noun_adj_network.png}
+    \caption{Noun-Adjective Co-occurrence Network}
+    \label{fig:noun_adj_network}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/noun_adj_relationships.png}
+    \caption{Cumulative Noun-Adjective Relationships}
+    \label{fig:noun_adj_relationships}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/noun_noun_relationships.png}
+    \caption{Cumulative Noun-Noun Relationships}
+    \label{fig:noun_noun_relationships}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/rand_steiner.png}
+    \caption{Random Steiner Tree for Comparison}
+    \label{fig:rand_steiner}
+\end{figure}
