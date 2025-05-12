@@ -14,7 +14,9 @@ def relation_evolution(file_path, top_nouns, top_adjs):
         top_adjs (set or list): Frequently occurring adjectives to track.
 
     Saves:
-        'relationship_evolution.png': Line plot of how each relationship type evolves.
+        'noun_noun_relationships.png': Noun-Noun relationship evolution.
+        'noun_adj_relationships.png': Noun-Adjective relationship evolution.
+        'adj_adj_relationships.png': Adjective-Adjective relationship evolution.
     """
     lines = []
     noun_noun, noun_adj, adj_adj = [], [], []
@@ -49,29 +51,34 @@ def relation_evolution(file_path, top_nouns, top_adjs):
         noun_adj.append(noun_adj_val + (noun_adj[i - 1] if i > 0 else 0))
         adj_adj.append(adj_adj_val + (adj_adj[i - 1] if i > 0 else 0))
 
-    # Plotting
-    plt.figure(figsize=(15, 15))
-
-    # Create 3 square-shaped subplots
-    plt.subplot(3, 3, 1)  # Row 1, Column 1
+    # Save each plot separately
+    # Noun-Noun Relationships Plot
+    plt.figure(figsize=(10, 8))
     plt.plot(noun_noun, "r-", linewidth=1.5)
-    plt.title("Noun-Noun Relationships", fontsize=14)
+    plt.title("Noun-Noun Relationships", fontsize=16)
     plt.ylabel("Cumulative Count")
     plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig("noun_noun_relationships.png", dpi=300, bbox_inches="tight")
+    plt.close()
 
-    plt.subplot(3, 3, 4)  # Row 2, Column 1
+    # Noun-Adjective Relationships Plot
+    plt.figure(figsize=(10, 8))
     plt.plot(noun_adj, "g-", linewidth=1.5)
-    plt.title("Noun-Adjective Relationships", fontsize=14)
+    plt.title("Noun-Adjective Relationships", fontsize=16)
     plt.ylabel("Cumulative Count")
     plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig("noun_adj_relationships.png", dpi=300, bbox_inches="tight")
+    plt.close()
 
-    plt.subplot(3, 3, 7)  # Row 3, Column 1
+    # Adjective-Adjective Relationships Plot
+    plt.figure(figsize=(10, 8))
     plt.plot(adj_adj, "b-", linewidth=1.5)
-    plt.title("Adjective-Adjective Relationships", fontsize=14)
+    plt.title("Adjective-Adjective Relationships", fontsize=16)
     plt.xlabel("Line Number")
     plt.ylabel("Cumulative Count")
     plt.grid(True, alpha=0.3)
-
     plt.tight_layout()
-    plt.savefig("relationship_evolution.png", dpi=300, bbox_inches="tight")
+    plt.savefig("adj_adj_relationships.png", dpi=300, bbox_inches="tight")
     plt.close()

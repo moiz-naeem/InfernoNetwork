@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2025-05-09">
+  <meta lastmodifieddate="2025-05-12">
     <creator>NetworkX 3.4.2</creator>
   </meta>
   <graph defaultedgetype="undirected" mode="static" name="">
@@ -1016,8 +1016,8 @@
       <edge source="noun_way" target="adj_goodly" id="3" />
       <edge source="noun_way" target="noun_mount" id="4" />
       <edge source="noun_way" target="adj_deep" id="5" />
-      <edge source="noun_way" target="adj_left" id="6" />
-      <edge source="noun_way" target="adj_other" id="7" />
+      <edge source="noun_way" target="adj_other" id="6" />
+      <edge source="noun_way" target="adj_left" id="7" />
       <edge source="noun_way" target="noun_part" id="8" />
       <edge source="noun_way" target="adj_new" id="9" />
       <edge source="noun_way" target="noun_woe" id="10" />
@@ -1033,13 +1033,13 @@
       <edge source="noun_way" target="noun_course" id="20" />
       <edge source="noun_way" target="noun_look" id="21" />
       <edge source="noun_way" target="adj_upward" id="22" />
-      <edge source="noun_way" target="adj_dismal" id="23" />
-      <edge source="noun_way" target="adj_first" id="24" />
+      <edge source="noun_way" target="adj_first" id="23" />
+      <edge source="noun_way" target="adj_dismal" id="24" />
       <edge source="noun_way" target="noun_guide" id="25" />
       <edge source="noun_way" target="noun_sight" id="26" />
       <edge source="noun_way" target="adj_bent" id="27" />
-      <edge source="noun_way" target="adj_much" id="28" />
-      <edge source="noun_way" target="adj_long" id="29" />
+      <edge source="noun_way" target="adj_long" id="28" />
+      <edge source="noun_way" target="adj_much" id="29" />
       <edge source="noun_way" target="noun_wave" id="30" />
       <edge source="noun_way" target="noun_sun" id="31" />
       <edge source="noun_way" target="noun_visage" id="32" />
@@ -1086,8 +1086,8 @@
       <edge source="noun_love" target="noun_view" id="73" />
       <edge source="noun_love" target="adj_third" id="74" />
       <edge source="noun_love" target="noun_fear" id="75" />
-      <edge source="noun_love" target="noun_body" id="76" />
-      <edge source="noun_love" target="noun_beam" id="77" />
+      <edge source="noun_love" target="noun_beam" id="76" />
+      <edge source="noun_love" target="noun_body" id="77" />
       <edge source="noun_love" target="adj_good" id="78" />
       <edge source="noun_love" target="noun_mother" id="79" />
       <edge source="noun_love" target="noun_son" id="80" />
@@ -1104,8 +1104,8 @@
       <edge source="noun_love" target="adj_pleasant" id="91" />
       <edge source="noun_love" target="noun_fire" id="92" />
       <edge source="noun_love" target="adj_worthy" id="93" />
-      <edge source="noun_love" target="adj_ancient" id="94" />
-      <edge source="noun_love" target="adj_strong" id="95" />
+      <edge source="noun_love" target="adj_strong" id="94" />
+      <edge source="noun_love" target="adj_ancient" id="95" />
       <edge source="noun_love" target="noun_power" id="96" />
       <edge source="noun_love" target="noun_desire" id="97" />
       <edge source="noun_love" target="adj_late" id="98" />
@@ -1116,8 +1116,8 @@
       <edge source="noun_love" target="adj_celestial" id="103" />
       <edge source="noun_love" target="noun_stream" id="104" />
       <edge source="noun_love" target="adj_wont" id="105" />
-      <edge source="noun_love" target="adj_heaven" id="106" />
-      <edge source="noun_love" target="adj_full" id="107" />
+      <edge source="noun_love" target="adj_full" id="106" />
+      <edge source="noun_love" target="adj_heaven" id="107" />
       <edge source="noun_love" target="noun_heaven" id="108" />
       <edge source="noun_love" target="adj_true" id="109" />
       <edge source="noun_love" target="noun_grace" id="110" />
@@ -1144,8 +1144,8 @@
       <edge source="noun_world" target="noun_none" id="131" />
       <edge source="noun_world" target="noun_beneath" id="132" />
       <edge source="noun_world" target="adj_pleasant" id="133" />
-      <edge source="noun_world" target="adj_ill" id="134" />
-      <edge source="noun_world" target="adj_beauteous" id="135" />
+      <edge source="noun_world" target="adj_beauteous" id="134" />
+      <edge source="noun_world" target="adj_ill" id="135" />
       <edge source="noun_world" target="adj_bright" id="136" />
       <edge source="noun_world" target="adj_old" id="137" />
       <edge source="noun_world" target="adj_same" id="138" />
@@ -1196,8 +1196,8 @@
       <edge source="noun_spirit" target="adj_dark" id="183" />
       <edge source="noun_spirit" target="noun_air" id="184" />
       <edge source="noun_spirit" target="adj_long" id="185" />
-      <edge source="noun_spirit" target="noun_space" id="186" />
-      <edge source="noun_spirit" target="noun_guide" id="187" />
+      <edge source="noun_spirit" target="noun_guide" id="186" />
+      <edge source="noun_spirit" target="noun_space" id="187" />
       <edge source="noun_spirit" target="adj_straight" id="188" />
       <edge source="noun_spirit" target="noun_cheek" id="189" />
       <edge source="noun_spirit" target="adj_evil" id="190" />
@@ -1206,8 +1206,8 @@
       <edge source="noun_spirit" target="noun_blood" id="193" />
       <edge source="noun_spirit" target="adj_other" id="194" />
       <edge source="noun_spirit" target="adj_mighty" id="195" />
-      <edge source="noun_spirit" target="noun_look" id="196" />
-      <edge source="noun_spirit" target="noun_breast" id="197" />
+      <edge source="noun_spirit" target="noun_breast" id="196" />
+      <edge source="noun_spirit" target="noun_look" id="197" />
       <edge source="noun_spirit" target="noun_head" id="198" />
       <edge source="noun_spirit" target="adj_next" id="199" />
       <edge source="noun_spirit" target="noun_day" id="200" />
@@ -1240,8 +1240,8 @@
       <edge source="noun_spirit" target="adj_sweet" id="227" />
       <edge source="noun_man" target="adj_short" id="228" />
       <edge source="noun_man" target="noun_living" id="229" />
-      <edge source="noun_man" target="adj_old" id="230" />
-      <edge source="noun_man" target="adj_white" id="231" />
+      <edge source="noun_man" target="adj_white" id="230" />
+      <edge source="noun_man" target="adj_old" id="231" />
       <edge source="noun_man" target="adj_other" id="232" />
       <edge source="noun_man" target="adj_evil" id="233" />
       <edge source="noun_man" target="noun_nature" id="234" />
@@ -1258,8 +1258,8 @@
       <edge source="noun_man" target="noun_rock" id="245" />
       <edge source="noun_man" target="adj_sweet" id="246" />
       <edge source="noun_man" target="noun_son" id="247" />
-      <edge source="noun_man" target="noun_heart" id="248" />
-      <edge source="noun_man" target="noun_sight" id="249" />
+      <edge source="noun_man" target="noun_sight" id="248" />
+      <edge source="noun_man" target="noun_heart" id="249" />
       <edge source="noun_man" target="noun_glory" id="250" />
       <edge source="noun_man" target="adj_joyous" id="251" />
       <edge source="noun_man" target="noun_place" id="252" />
@@ -1277,8 +1277,8 @@
       <edge source="noun_man" target="adj_loud" id="264" />
       <edge source="noun_man" target="noun_mountain" id="265" />
       <edge source="noun_man" target="adj_single" id="266" />
-      <edge source="noun_man" target="noun_vision" id="267" />
-      <edge source="noun_man" target="noun_height" id="268" />
+      <edge source="noun_man" target="noun_height" id="267" />
+      <edge source="noun_man" target="noun_vision" id="268" />
       <edge source="noun_man" target="noun_flame" id="269" />
       <edge source="noun_man" target="noun_eye" id="270" />
       <edge source="noun_man" target="adj_dark" id="271" />
@@ -1303,8 +1303,8 @@
       <edge source="noun_guide" target="adj_wont" id="290" />
       <edge source="noun_guide" target="noun_hand" id="291" />
       <edge source="noun_guide" target="adj_right" id="292" />
-      <edge source="noun_guide" target="adj_sweet" id="293" />
-      <edge source="noun_guide" target="adj_sure" id="294" />
+      <edge source="noun_guide" target="adj_sure" id="293" />
+      <edge source="noun_guide" target="adj_sweet" id="294" />
       <edge source="noun_guide" target="adj_long" id="295" />
       <edge source="noun_guide" target="noun_space" id="296" />
       <edge source="noun_guide" target="noun_eye" id="297" />
@@ -1313,16 +1313,16 @@
       <edge source="noun_guide" target="noun_face" id="300" />
       <edge source="noun_guide" target="noun_height" id="301" />
       <edge source="noun_guide" target="noun_look" id="302" />
-      <edge source="noun_guide" target="adj_few" id="303" />
-      <edge source="noun_guide" target="adj_free" id="304" />
+      <edge source="noun_guide" target="adj_free" id="303" />
+      <edge source="noun_guide" target="adj_few" id="304" />
       <edge source="noun_guide" target="noun_place" id="305" />
       <edge source="noun_guide" target="adj_lofty" id="306" />
       <edge source="noun_guide" target="noun_shade" id="307" />
       <edge source="noun_guide" target="noun_point" id="308" />
       <edge source="noun_guide" target="noun_voice" id="309" />
       <edge source="noun_guide" target="adj_full" id="310" />
-      <edge source="noun_guide" target="adj_old" id="311" />
-      <edge source="noun_guide" target="adj_new" id="312" />
+      <edge source="noun_guide" target="adj_new" id="311" />
+      <edge source="noun_guide" target="adj_old" id="312" />
       <edge source="noun_guide" target="adj_celestial" id="313" />
       <edge source="noun_guide" target="adj_other" id="314" />
       <edge source="noun_guide" target="noun_none" id="315" />
@@ -1341,20 +1341,20 @@
       <edge source="noun_light" target="noun_life" id="328" />
       <edge source="noun_light" target="adj_upward" id="329" />
       <edge source="noun_light" target="noun_flame" id="330" />
-      <edge source="noun_light" target="noun_course" id="331" />
-      <edge source="noun_light" target="noun_wave" id="332" />
+      <edge source="noun_light" target="noun_wave" id="331" />
+      <edge source="noun_light" target="noun_course" id="332" />
       <edge source="noun_light" target="noun_ground" id="333" />
       <edge source="noun_light" target="noun_sun" id="334" />
       <edge source="noun_light" target="noun_beneath" id="335" />
       <edge source="noun_light" target="adj_heaven" id="336" />
       <edge source="noun_light" target="noun_heaven" id="337" />
-      <edge source="noun_light" target="noun_truth" id="338" />
-      <edge source="noun_light" target="noun_mind" id="339" />
+      <edge source="noun_light" target="noun_mind" id="338" />
+      <edge source="noun_light" target="noun_truth" id="339" />
       <edge source="noun_light" target="adj_pleasant" id="340" />
       <edge source="noun_light" target="noun_hope" id="341" />
       <edge source="noun_light" target="adj_fair" id="342" />
-      <edge source="noun_light" target="adj_wish" id="343" />
-      <edge source="noun_light" target="adj_lofty" id="344" />
+      <edge source="noun_light" target="adj_lofty" id="343" />
+      <edge source="noun_light" target="adj_wish" id="344" />
       <edge source="noun_light" target="noun_air" id="345" />
       <edge source="noun_light" target="adj_true" id="346" />
       <edge source="noun_light" target="adj_good" id="347" />
@@ -1367,8 +1367,8 @@
       <edge source="noun_light" target="noun_race" id="354" />
       <edge source="noun_light" target="adj_second" id="355" />
       <edge source="noun_light" target="adj_bent" id="356" />
-      <edge source="noun_light" target="adj_sacred" id="357" />
-      <edge source="noun_light" target="adj_eternal" id="358" />
+      <edge source="noun_light" target="adj_eternal" id="357" />
+      <edge source="noun_light" target="adj_sacred" id="358" />
       <edge source="noun_light" target="adj_great" id="359" />
       <edge source="noun_light" target="noun_desire" id="360" />
       <edge source="noun_light" target="noun_place" id="361" />
@@ -1400,8 +1400,8 @@
       <edge source="noun_side" target="adj_high" id="387" />
       <edge source="noun_side" target="noun_shade" id="388" />
       <edge source="noun_side" target="adj_bent" id="389" />
-      <edge source="noun_side" target="noun_ring" id="390" />
-      <edge source="noun_side" target="noun_wave" id="391" />
+      <edge source="noun_side" target="noun_wave" id="390" />
+      <edge source="noun_side" target="noun_ring" id="391" />
       <edge source="noun_side" target="adj_dark" id="392" />
       <edge source="noun_side" target="noun_blood" id="393" />
       <edge source="noun_side" target="adj_left" id="394" />
@@ -1433,8 +1433,8 @@
       <edge source="noun_side" target="adj_heavy" id="420" />
       <edge source="noun_side" target="noun_sight" id="421" />
       <edge source="noun_side" target="noun_star" id="422" />
-      <edge source="noun_side" target="noun_living" id="423" />
-      <edge source="noun_side" target="noun_flame" id="424" />
+      <edge source="noun_side" target="noun_flame" id="423" />
+      <edge source="noun_side" target="noun_living" id="424" />
       <edge source="noun_heaven" target="adj_heaven" id="425" />
       <edge source="noun_heaven" target="adj_great" id="426" />
       <edge source="noun_heaven" target="noun_height" id="427" />
@@ -1452,8 +1452,8 @@
       <edge source="noun_heaven" target="adj_new" id="439" />
       <edge source="noun_heaven" target="adj_straight" id="440" />
       <edge source="noun_heaven" target="noun_face" id="441" />
-      <edge source="noun_heaven" target="adj_long" id="442" />
-      <edge source="noun_heaven" target="adj_first" id="443" />
+      <edge source="noun_heaven" target="adj_first" id="442" />
+      <edge source="noun_heaven" target="adj_long" id="443" />
       <edge source="noun_heaven" target="noun_round" id="444" />
       <edge source="noun_heaven" target="adj_other" id="445" />
       <edge source="noun_heaven" target="noun_kind" id="446" />
@@ -1481,8 +1481,8 @@
       <edge source="noun_heaven" target="noun_beneath" id="468" />
       <edge source="noun_heaven" target="noun_virtue" id="469" />
       <edge source="noun_heaven" target="adj_fair" id="470" />
-      <edge source="noun_heaven" target="noun_star" id="471" />
-      <edge source="noun_heaven" target="noun_place" id="472" />
+      <edge source="noun_heaven" target="noun_place" id="471" />
+      <edge source="noun_heaven" target="noun_star" id="472" />
       <edge source="noun_heaven" target="noun_glory" id="473" />
       <edge source="noun_heaven" target="noun_thought" id="474" />
       <edge source="noun_heaven" target="adj_like" id="475" />
@@ -1492,8 +1492,8 @@
       <edge source="noun_heaven" target="adj_mortal" id="479" />
       <edge source="noun_heaven" target="noun_soul" id="480" />
       <edge source="noun_heaven" target="noun_none" id="481" />
-      <edge source="noun_heaven" target="noun_nature" id="482" />
-      <edge source="noun_heaven" target="noun_point" id="483" />
+      <edge source="noun_heaven" target="noun_point" id="482" />
+      <edge source="noun_heaven" target="noun_nature" id="483" />
       <edge source="noun_heaven" target="noun_sun" id="484" />
       <edge source="noun_sun" target="adj_sweet" id="485" />
       <edge source="noun_sun" target="noun_air" id="486" />
@@ -1530,14 +1530,14 @@
       <edge source="noun_sun" target="noun_star" id="517" />
       <edge source="noun_sun" target="adj_heaven" id="518" />
       <edge source="noun_eye" target="noun_son" id="519" />
-      <edge source="noun_eye" target="noun_round" id="520" />
-      <edge source="noun_eye" target="noun_beam" id="521" />
+      <edge source="noun_eye" target="noun_beam" id="520" />
+      <edge source="noun_eye" target="noun_round" id="521" />
       <edge source="noun_eye" target="adj_lofty" id="522" />
       <edge source="noun_eye" target="adj_bright" id="523" />
       <edge source="noun_eye" target="noun_life" id="524" />
       <edge source="noun_eye" target="adj_old" id="525" />
-      <edge source="noun_eye" target="adj_little" id="526" />
-      <edge source="noun_eye" target="adj_further" id="527" />
+      <edge source="noun_eye" target="adj_further" id="526" />
+      <edge source="noun_eye" target="adj_little" id="527" />
       <edge source="noun_eye" target="noun_shade" id="528" />
       <edge source="noun_eye" target="noun_ground" id="529" />
       <edge source="noun_eye" target="noun_sight" id="530" />
@@ -1552,8 +1552,8 @@
       <edge source="noun_eye" target="noun_word" id="539" />
       <edge source="noun_eye" target="adj_dark" id="540" />
       <edge source="noun_eye" target="noun_look" id="541" />
-      <edge source="noun_eye" target="noun_living" id="542" />
-      <edge source="noun_eye" target="noun_joy" id="543" />
+      <edge source="noun_eye" target="noun_joy" id="542" />
+      <edge source="noun_eye" target="noun_living" id="543" />
       <edge source="noun_eye" target="adj_many" id="544" />
       <edge source="noun_eye" target="noun_face" id="545" />
       <edge source="noun_eye" target="noun_thought" id="546" />
@@ -1587,8 +1587,8 @@
       <edge source="noun_time" target="adj_straight" id="574" />
       <edge source="noun_time" target="adj_much" id="575" />
       <edge source="noun_time" target="noun_voice" id="576" />
-      <edge source="noun_time" target="adj_old" id="577" />
-      <edge source="noun_time" target="adj_new" id="578" />
+      <edge source="noun_time" target="adj_new" id="577" />
+      <edge source="noun_time" target="adj_old" id="578" />
       <edge source="noun_time" target="noun_hand" id="579" />
       <edge source="noun_time" target="adj_many" id="580" />
       <edge source="noun_time" target="noun_son" id="581" />
@@ -1645,8 +1645,8 @@
       <edge source="noun_life" target="adj_bright" id="632" />
       <edge source="noun_life" target="adj_light" id="633" />
       <edge source="noun_life" target="adj_right" id="634" />
-      <edge source="noun_life" target="adj_brief" id="635" />
-      <edge source="noun_life" target="adj_eternal" id="636" />
+      <edge source="noun_life" target="adj_eternal" id="635" />
+      <edge source="noun_life" target="adj_brief" id="636" />
       <edge source="noun_life" target="adj_ill" id="637" />
       <edge source="noun_life" target="adj_long" id="638" />
       <edge source="noun_life" target="noun_tongue" id="639" />
@@ -1718,8 +1718,8 @@
       <edge source="noun_voice" target="adj_soft" id="705" />
       <edge source="noun_voice" target="noun_day" id="706" />
       <edge source="noun_voice" target="adj_many" id="707" />
-      <edge source="noun_voice" target="adj_loud" id="708" />
-      <edge source="noun_voice" target="adj_other" id="709" />
+      <edge source="noun_voice" target="adj_other" id="708" />
+      <edge source="noun_voice" target="adj_loud" id="709" />
       <edge source="noun_voice" target="adj_lofty" id="710" />
       <edge source="noun_voice" target="adj_fair" id="711" />
       <edge source="noun_voice" target="noun_mountain" id="712" />
@@ -1753,8 +1753,8 @@
       <edge source="noun_soul" target="adj_many" id="740" />
       <edge source="noun_soul" target="adj_ill" id="741" />
       <edge source="noun_soul" target="noun_cheek" id="742" />
-      <edge source="noun_soul" target="adj_great" id="743" />
-      <edge source="noun_soul" target="adj_other" id="744" />
+      <edge source="noun_soul" target="adj_other" id="743" />
+      <edge source="noun_soul" target="adj_great" id="744" />
       <edge source="noun_soul" target="adj_fierce" id="745" />
       <edge source="noun_soul" target="noun_body" id="746" />
       <edge source="noun_soul" target="noun_hand" id="747" />
@@ -1800,8 +1800,8 @@
       <edge source="noun_place" target="noun_circle" id="787" />
       <edge source="noun_place" target="adj_wild" id="788" />
       <edge source="noun_place" target="adj_great" id="789" />
-      <edge source="noun_place" target="noun_round" id="790" />
-      <edge source="noun_place" target="noun_part" id="791" />
+      <edge source="noun_place" target="noun_part" id="790" />
+      <edge source="noun_place" target="noun_round" id="791" />
       <edge source="noun_place" target="noun_nature" id="792" />
       <edge source="noun_place" target="adj_wont" id="793" />
       <edge source="noun_place" target="noun_ring" id="794" />
@@ -1811,8 +1811,8 @@
       <edge source="noun_place" target="adj_fresh" id="798" />
       <edge source="noun_place" target="adj_left" id="799" />
       <edge source="noun_place" target="adj_certain" id="800" />
-      <edge source="noun_place" target="adj_right" id="801" />
-      <edge source="noun_place" target="adj_pleasant" id="802" />
+      <edge source="noun_place" target="adj_pleasant" id="801" />
+      <edge source="noun_place" target="adj_right" id="802" />
       <edge source="noun_place" target="noun_heart" id="803" />
       <edge source="noun_place" target="adj_evil" id="804" />
       <edge source="noun_place" target="noun_path" id="805" />
@@ -1851,8 +1851,8 @@
       <edge source="noun_none" target="adj_second" id="838" />
       <edge source="noun_none" target="adj_good" id="839" />
       <edge source="noun_none" target="noun_space" id="840" />
-      <edge source="noun_none" target="adj_bright" id="841" />
-      <edge source="noun_none" target="adj_goodly" id="842" />
+      <edge source="noun_none" target="adj_goodly" id="841" />
+      <edge source="noun_none" target="adj_bright" id="842" />
       <edge source="noun_none" target="adj_heaven" id="843" />
       <edge source="noun_none" target="adj_full" id="844" />
       <edge source="noun_none" target="adj_soft" id="845" />
@@ -1932,10 +1932,10 @@
       <edge source="noun_round" target="noun_head" id="919" />
       <edge source="noun_round" target="adj_upward" id="920" />
       <edge source="noun_round" target="noun_height" id="921" />
-      <edge source="noun_round" target="adj_long" id="922" />
-      <edge source="noun_round" target="adj_heaven" id="923" />
-      <edge source="noun_round" target="noun_mountain" id="924" />
-      <edge source="noun_round" target="noun_path" id="925" />
+      <edge source="noun_round" target="adj_heaven" id="922" />
+      <edge source="noun_round" target="adj_long" id="923" />
+      <edge source="noun_round" target="noun_path" id="924" />
+      <edge source="noun_round" target="noun_mountain" id="925" />
       <edge source="noun_round" target="adj_new" id="926" />
       <edge source="noun_round" target="adj_steep" id="927" />
       <edge source="noun_round" target="noun_virtue" id="928" />
@@ -1961,12 +1961,12 @@
       <edge source="noun_power" target="noun_visage" id="948" />
       <edge source="noun_power" target="adj_much" id="949" />
       <edge source="noun_power" target="noun_son" id="950" />
-      <edge source="noun_power" target="adj_ancient" id="951" />
-      <edge source="noun_power" target="adj_strong" id="952" />
+      <edge source="noun_power" target="adj_strong" id="951" />
+      <edge source="noun_power" target="adj_ancient" id="952" />
       <edge source="noun_power" target="noun_day" id="953" />
       <edge source="noun_power" target="adj_clear" id="954" />
-      <edge source="noun_power" target="adj_third" id="955" />
-      <edge source="noun_power" target="adj_last" id="956" />
+      <edge source="noun_power" target="adj_last" id="955" />
+      <edge source="noun_power" target="adj_third" id="956" />
       <edge source="noun_power" target="noun_desire" id="957" />
       <edge source="noun_power" target="noun_truth" id="958" />
       <edge source="noun_power" target="adj_ill" id="959" />
@@ -1985,8 +1985,8 @@
       <edge source="noun_truth" target="noun_cause" id="972" />
       <edge source="noun_truth" target="noun_doubt" id="973" />
       <edge source="noun_truth" target="adj_first" id="974" />
-      <edge source="noun_truth" target="adj_sweet" id="975" />
-      <edge source="noun_truth" target="adj_fair" id="976" />
+      <edge source="noun_truth" target="adj_fair" id="975" />
+      <edge source="noun_truth" target="adj_sweet" id="976" />
       <edge source="noun_truth" target="noun_view" id="977" />
       <edge source="noun_truth" target="adj_primal" id="978" />
       <edge source="noun_truth" target="adj_like" id="979" />
@@ -2047,8 +2047,8 @@
       <edge source="noun_virtue" target="adj_free" id="1034" />
       <edge source="noun_virtue" target="noun_space" id="1035" />
       <edge source="noun_virtue" target="adj_ill" id="1036" />
-      <edge source="noun_virtue" target="noun_woe" id="1037" />
-      <edge source="noun_virtue" target="noun_joy" id="1038" />
+      <edge source="noun_virtue" target="noun_joy" id="1037" />
+      <edge source="noun_virtue" target="noun_woe" id="1038" />
       <edge source="noun_virtue" target="adj_light" id="1039" />
       <edge source="noun_virtue" target="adj_good" id="1040" />
       <edge source="noun_virtue" target="noun_son" id="1041" />
@@ -2081,8 +2081,8 @@
       <edge source="noun_day" target="adj_high" id="1068" />
       <edge source="noun_day" target="adj_mortal" id="1069" />
       <edge source="noun_day" target="adj_good" id="1070" />
-      <edge source="noun_day" target="noun_view" id="1071" />
-      <edge source="noun_day" target="noun_hope" id="1072" />
+      <edge source="noun_day" target="noun_hope" id="1071" />
+      <edge source="noun_day" target="noun_view" id="1072" />
       <edge source="noun_day" target="adj_eternal" id="1073" />
       <edge source="noun_day" target="adj_primal" id="1074" />
       <edge source="noun_day" target="adj_dark" id="1075" />
@@ -2091,11 +2091,11 @@
       <edge source="noun_day" target="noun_flight" id="1078" />
       <edge source="noun_rest" target="noun_hope" id="1079" />
       <edge source="noun_rest" target="adj_bent" id="1080" />
-      <edge source="noun_rest" target="adj_like" id="1081" />
-      <edge source="noun_rest" target="adj_other" id="1082" />
+      <edge source="noun_rest" target="adj_other" id="1081" />
+      <edge source="noun_rest" target="adj_like" id="1082" />
       <edge source="noun_rest" target="adj_first" id="1083" />
-      <edge source="noun_rest" target="noun_foot" id="1084" />
-      <edge source="noun_rest" target="noun_beneath" id="1085" />
+      <edge source="noun_rest" target="noun_beneath" id="1084" />
+      <edge source="noun_rest" target="noun_foot" id="1085" />
       <edge source="noun_rest" target="noun_master" id="1086" />
       <edge source="noun_rest" target="noun_art" id="1087" />
       <edge source="noun_rest" target="noun_flame" id="1088" />
@@ -2115,8 +2115,8 @@
       <edge source="noun_rest" target="noun_circle" id="1102" />
       <edge source="noun_rest" target="noun_glory" id="1103" />
       <edge source="noun_view" target="adj_new" id="1104" />
-      <edge source="noun_view" target="adj_next" id="1105" />
-      <edge source="noun_view" target="adj_second" id="1106" />
+      <edge source="noun_view" target="adj_second" id="1105" />
+      <edge source="noun_view" target="adj_next" id="1106" />
       <edge source="noun_view" target="noun_death" id="1107" />
       <edge source="noun_view" target="adj_evil" id="1108" />
       <edge source="noun_view" target="adj_great" id="1109" />
@@ -2138,8 +2138,8 @@
       <edge source="noun_view" target="noun_hour" id="1125" />
       <edge source="noun_view" target="adj_other" id="1126" />
       <edge source="noun_view" target="noun_beneath" id="1127" />
-      <edge source="noun_view" target="adj_light" id="1128" />
-      <edge source="noun_view" target="adj_eternal" id="1129" />
+      <edge source="noun_view" target="adj_eternal" id="1128" />
+      <edge source="noun_view" target="adj_light" id="1129" />
       <edge source="noun_view" target="adj_further" id="1130" />
       <edge source="noun_view" target="adj_primal" id="1131" />
       <edge source="noun_view" target="noun_mark" id="1132" />
@@ -2187,8 +2187,8 @@
       <edge source="noun_heart" target="adj_good" id="1174" />
       <edge source="noun_heart" target="noun_cause" id="1175" />
       <edge source="noun_heart" target="noun_form" id="1176" />
-      <edge source="noun_heart" target="adj_light" id="1177" />
-      <edge source="noun_heart" target="adj_many" id="1178" />
+      <edge source="noun_heart" target="adj_many" id="1177" />
+      <edge source="noun_heart" target="adj_light" id="1178" />
       <edge source="noun_heart" target="noun_star" id="1179" />
       <edge source="noun_name" target="adj_wont" id="1180" />
       <edge source="noun_name" target="adj_second" id="1181" />
@@ -2216,8 +2216,8 @@
       <edge source="noun_fire" target="noun_point" id="1203" />
       <edge source="noun_fire" target="adj_upward" id="1204" />
       <edge source="noun_fire" target="adj_like" id="1205" />
-      <edge source="noun_fire" target="adj_celestial" id="1206" />
-      <edge source="noun_fire" target="adj_bright" id="1207" />
+      <edge source="noun_fire" target="adj_bright" id="1206" />
+      <edge source="noun_fire" target="adj_celestial" id="1207" />
       <edge source="noun_fire" target="adj_other" id="1208" />
       <edge source="noun_fire" target="noun_wave" id="1209" />
       <edge source="noun_fire" target="noun_air" id="1210" />
@@ -2244,8 +2244,8 @@
       <edge source="noun_cause" target="adj_little" id="1231" />
       <edge source="noun_cause" target="adj_good" id="1232" />
       <edge source="noun_cause" target="noun_beam" id="1233" />
-      <edge source="noun_cause" target="noun_art" id="1234" />
-      <edge source="noun_cause" target="noun_joy" id="1235" />
+      <edge source="noun_cause" target="noun_joy" id="1234" />
+      <edge source="noun_cause" target="noun_art" id="1235" />
       <edge source="noun_air" target="noun_night" id="1236" />
       <edge source="noun_air" target="noun_star" id="1237" />
       <edge source="noun_air" target="adj_eternal" id="1238" />
@@ -2303,15 +2303,15 @@
       <edge source="noun_rock" target="noun_hope" id="1290" />
       <edge source="noun_rock" target="adj_first" id="1291" />
       <edge source="noun_rock" target="adj_long" id="1292" />
-      <edge source="noun_rock" target="noun_mountain" id="1293" />
-      <edge source="noun_rock" target="noun_foot" id="1294" />
+      <edge source="noun_rock" target="noun_foot" id="1293" />
+      <edge source="noun_rock" target="noun_mountain" id="1294" />
       <edge source="noun_rock" target="adj_dark" id="1295" />
       <edge source="noun_rock" target="noun_sound" id="1296" />
       <edge source="noun_rock" target="adj_fierce" id="1297" />
       <edge source="noun_flame" target="adj_fierce" id="1298" />
       <edge source="noun_flame" target="adj_old" id="1299" />
-      <edge source="noun_flame" target="adj_light" id="1300" />
-      <edge source="noun_flame" target="adj_upward" id="1301" />
+      <edge source="noun_flame" target="adj_upward" id="1300" />
+      <edge source="noun_flame" target="adj_light" id="1301" />
       <edge source="noun_flame" target="adj_own" id="1302" />
       <edge source="noun_flame" target="adj_long" id="1303" />
       <edge source="noun_flame" target="adj_fair" id="1304" />
@@ -2328,8 +2328,8 @@
       <edge source="noun_flame" target="noun_course" id="1315" />
       <edge source="noun_flame" target="noun_star" id="1316" />
       <edge source="noun_land" target="adj_many" id="1317" />
-      <edge source="noun_land" target="adj_open" id="1318" />
-      <edge source="noun_land" target="adj_strong" id="1319" />
+      <edge source="noun_land" target="adj_strong" id="1318" />
+      <edge source="noun_land" target="adj_open" id="1319" />
       <edge source="noun_land" target="adj_evil" id="1320" />
       <edge source="noun_land" target="noun_head" id="1321" />
       <edge source="noun_land" target="noun_water" id="1322" />
@@ -2357,8 +2357,8 @@
       <edge source="noun_song" target="noun_sound" id="1344" />
       <edge source="noun_song" target="adj_green" id="1345" />
       <edge source="noun_song" target="noun_motion" id="1346" />
-      <edge source="noun_song" target="adj_great" id="1347" />
-      <edge source="noun_song" target="adj_other" id="1348" />
+      <edge source="noun_song" target="adj_other" id="1347" />
+      <edge source="noun_song" target="adj_great" id="1348" />
       <edge source="noun_song" target="adj_brief" id="1349" />
       <edge source="noun_song" target="adj_high" id="1350" />
       <edge source="noun_song" target="noun_grace" id="1351" />
@@ -2371,8 +2371,8 @@
       <edge source="noun_head" target="noun_ground" id="1358" />
       <edge source="noun_head" target="adj_like" id="1359" />
       <edge source="noun_head" target="noun_foot" id="1360" />
-      <edge source="noun_head" target="adj_many" id="1361" />
-      <edge source="noun_head" target="adj_lofty" id="1362" />
+      <edge source="noun_head" target="adj_lofty" id="1361" />
+      <edge source="noun_head" target="adj_many" id="1362" />
       <edge source="noun_head" target="adj_third" id="1363" />
       <edge source="noun_head" target="noun_face" id="1364" />
       <edge source="noun_head" target="adj_mighty" id="1365" />
@@ -2420,11 +2420,11 @@
       <edge source="noun_beam" target="adj_own" id="1407" />
       <edge source="noun_beam" target="adj_other" id="1408" />
       <edge source="noun_beam" target="adj_wont" id="1409" />
-      <edge source="noun_beam" target="adj_second" id="1410" />
-      <edge source="noun_beam" target="adj_first" id="1411" />
+      <edge source="noun_beam" target="adj_first" id="1410" />
+      <edge source="noun_beam" target="adj_second" id="1411" />
       <edge source="noun_beam" target="adj_primal" id="1412" />
-      <edge source="noun_beam" target="adj_gentle" id="1413" />
-      <edge source="noun_beam" target="adj_eternal" id="1414" />
+      <edge source="noun_beam" target="adj_eternal" id="1413" />
+      <edge source="noun_beam" target="adj_gentle" id="1414" />
       <edge source="noun_beam" target="adj_single" id="1415" />
       <edge source="noun_beam" target="noun_vision" id="1416" />
       <edge source="noun_course" target="adj_dead" id="1417" />
@@ -2489,13 +2489,13 @@
       <edge source="noun_speech" target="noun_visage" id="1476" />
       <edge source="noun_speech" target="adj_own" id="1477" />
       <edge source="noun_speech" target="noun_mother" id="1478" />
-      <edge source="noun_speech" target="adj_wish" id="1479" />
-      <edge source="noun_speech" target="adj_high" id="1480" />
+      <edge source="noun_speech" target="adj_high" id="1479" />
+      <edge source="noun_speech" target="adj_wish" id="1480" />
       <edge source="noun_speech" target="adj_much" id="1481" />
       <edge source="noun_speech" target="adj_mortal" id="1482" />
       <edge source="noun_joy" target="adj_sweet" id="1483" />
-      <edge source="noun_joy" target="adj_third" id="1484" />
-      <edge source="noun_joy" target="adj_long" id="1485" />
+      <edge source="noun_joy" target="adj_long" id="1484" />
+      <edge source="noun_joy" target="adj_third" id="1485" />
       <edge source="noun_joy" target="noun_living" id="1486" />
       <edge source="noun_joy" target="adj_fair" id="1487" />
       <edge source="noun_joy" target="noun_mountain" id="1488" />
@@ -2518,8 +2518,8 @@
       <edge source="noun_desire" target="adj_high" id="1505" />
       <edge source="noun_desire" target="noun_hour" id="1506" />
       <edge source="noun_desire" target="noun_mount" id="1507" />
-      <edge source="noun_desire" target="adj_light" id="1508" />
-      <edge source="noun_desire" target="adj_great" id="1509" />
+      <edge source="noun_desire" target="adj_great" id="1508" />
+      <edge source="noun_desire" target="adj_light" id="1509" />
       <edge source="noun_desire" target="adj_full" id="1510" />
       <edge source="noun_desire" target="adj_sacred" id="1511" />
       <edge source="noun_desire" target="noun_fear" id="1512" />
@@ -2600,8 +2600,8 @@
       <edge source="noun_art" target="adj_high" id="1587" />
       <edge source="noun_art" target="adj_silent" id="1588" />
       <edge source="noun_art" target="noun_beneath" id="1589" />
-      <edge source="noun_art" target="adj_great" id="1590" />
-      <edge source="noun_art" target="adj_mighty" id="1591" />
+      <edge source="noun_art" target="adj_mighty" id="1590" />
+      <edge source="noun_art" target="adj_great" id="1591" />
       <edge source="noun_beneath" target="adj_different" id="1592" />
       <edge source="noun_beneath" target="noun_blood" id="1593" />
       <edge source="noun_beneath" target="adj_fierce" id="1594" />
@@ -2624,8 +2624,8 @@
       <edge source="noun_beneath" target="adj_heaven" id="1611" />
       <edge source="noun_beneath" target="adj_holy" id="1612" />
       <edge source="noun_grace" target="adj_high" id="1613" />
-      <edge source="noun_grace" target="adj_heaven" id="1614" />
-      <edge source="noun_grace" target="adj_clear" id="1615" />
+      <edge source="noun_grace" target="adj_clear" id="1614" />
+      <edge source="noun_grace" target="adj_heaven" id="1615" />
       <edge source="noun_grace" target="adj_celestial" id="1616" />
       <edge source="noun_grace" target="adj_mortal" id="1617" />
       <edge source="noun_grace" target="adj_true" id="1618" />
@@ -2648,8 +2648,8 @@
       <edge source="noun_thought" target="noun_death" id="1635" />
       <edge source="noun_thought" target="adj_bent" id="1636" />
       <edge source="noun_thought" target="noun_visage" id="1637" />
-      <edge source="noun_thought" target="adj_wide" id="1638" />
-      <edge source="noun_thought" target="adj_own" id="1639" />
+      <edge source="noun_thought" target="adj_own" id="1638" />
+      <edge source="noun_thought" target="adj_wide" id="1639" />
       <edge source="noun_thought" target="adj_equal" id="1640" />
       <edge source="noun_thought" target="noun_foot" id="1641" />
       <edge source="noun_thought" target="noun_bosom" id="1642" />
@@ -2664,8 +2664,8 @@
       <edge source="noun_thought" target="adj_heaven" id="1651" />
       <edge source="noun_thought" target="adj_mortal" id="1652" />
       <edge source="noun_thought" target="noun_height" id="1653" />
-      <edge source="noun_death" target="adj_next" id="1654" />
-      <edge source="noun_death" target="adj_second" id="1655" />
+      <edge source="noun_death" target="adj_second" id="1654" />
+      <edge source="noun_death" target="adj_next" id="1655" />
       <edge source="noun_death" target="noun_mark" id="1656" />
       <edge source="noun_death" target="adj_many" id="1657" />
       <edge source="noun_death" target="adj_like" id="1658" />
@@ -2677,8 +2677,8 @@
       <edge source="noun_death" target="adj_sweet" id="1664" />
       <edge source="noun_death" target="noun_flight" id="1665" />
       <edge source="noun_death" target="adj_sudden" id="1666" />
-      <edge source="noun_death" target="adj_loud" id="1667" />
-      <edge source="noun_death" target="adj_long" id="1668" />
+      <edge source="noun_death" target="adj_long" id="1667" />
+      <edge source="noun_death" target="adj_loud" id="1668" />
       <edge source="noun_death" target="adj_true" id="1669" />
       <edge source="noun_death" target="adj_holy" id="1670" />
       <edge source="noun_blood" target="adj_wild" id="1671" />
@@ -2732,8 +2732,8 @@
       <edge source="noun_breast" target="adj_mighty" id="1719" />
       <edge source="noun_breast" target="noun_stream" id="1720" />
       <edge source="noun_breast" target="noun_mother" id="1721" />
-      <edge source="noun_path" target="adj_left" id="1722" />
-      <edge source="noun_path" target="adj_true" id="1723" />
+      <edge source="noun_path" target="adj_true" id="1722" />
+      <edge source="noun_path" target="adj_left" id="1723" />
       <edge source="noun_path" target="adj_human" id="1724" />
       <edge source="noun_path" target="noun_kind" id="1725" />
       <edge source="noun_path" target="adj_wild" id="1726" />
@@ -2752,8 +2752,8 @@
       <edge source="noun_mountain" target="adj_steep" id="1739" />
       <edge source="noun_mountain" target="adj_low" id="1740" />
       <edge source="noun_mountain" target="adj_fair" id="1741" />
-      <edge source="noun_mountain" target="adj_holy" id="1742" />
-      <edge source="noun_mountain" target="adj_first" id="1743" />
+      <edge source="noun_mountain" target="adj_first" id="1742" />
+      <edge source="noun_mountain" target="adj_holy" id="1743" />
       <edge source="noun_mountain" target="noun_shade" id="1744" />
       <edge source="noun_mountain" target="adj_lofty" id="1745" />
       <edge source="noun_mountain" target="noun_height" id="1746" />
@@ -2850,13 +2850,13 @@
       <edge source="noun_vision" target="noun_star" id="1837" />
       <edge source="noun_vision" target="adj_large" id="1838" />
       <edge source="noun_hour" target="adj_evil" id="1839" />
-      <edge source="noun_hour" target="adj_much" id="1840" />
-      <edge source="noun_hour" target="adj_third" id="1841" />
+      <edge source="noun_hour" target="adj_third" id="1840" />
+      <edge source="noun_hour" target="adj_much" id="1841" />
       <edge source="noun_hour" target="adj_full" id="1842" />
       <edge source="noun_hour" target="adj_happy" id="1843" />
       <edge source="noun_hour" target="adj_mortal" id="1844" />
-      <edge source="noun_hour" target="adj_next" id="1845" />
-      <edge source="noun_hour" target="adj_first" id="1846" />
+      <edge source="noun_hour" target="adj_first" id="1845" />
+      <edge source="noun_hour" target="adj_next" id="1846" />
       <edge source="noun_height" target="noun_hope" id="1847" />
       <edge source="noun_height" target="adj_heaven" id="1848" />
       <edge source="noun_height" target="adj_steep" id="1849" />
@@ -2872,16 +2872,16 @@
       <edge source="noun_kind" target="adj_heaven" id="1859" />
       <edge source="noun_kind" target="adj_other" id="1860" />
       <edge source="noun_kind" target="adj_gentle" id="1861" />
-      <edge source="noun_kind" target="adj_mortal" id="1862" />
-      <edge source="noun_kind" target="adj_first" id="1863" />
+      <edge source="noun_kind" target="adj_first" id="1862" />
+      <edge source="noun_kind" target="adj_mortal" id="1863" />
       <edge source="noun_star" target="adj_gentle" id="1864" />
       <edge source="noun_star" target="adj_other" id="1865" />
       <edge source="noun_star" target="noun_night" id="1866" />
       <edge source="noun_star" target="adj_like" id="1867" />
       <edge source="noun_star" target="adj_many" id="1868" />
       <edge source="noun_star" target="adj_first" id="1869" />
-      <edge source="noun_star" target="adj_little" id="1870" />
-      <edge source="noun_star" target="adj_good" id="1871" />
+      <edge source="noun_star" target="adj_good" id="1870" />
+      <edge source="noun_star" target="adj_little" id="1871" />
       <edge source="noun_star" target="adj_heaven" id="1872" />
       <edge source="noun_star" target="adj_glorious" id="1873" />
       <edge source="noun_star" target="adj_bright" id="1874" />
@@ -2926,13 +2926,13 @@
       <edge source="noun_shade" target="adj_worthy" id="1913" />
       <edge source="noun_shade" target="adj_celestial" id="1914" />
       <edge source="noun_shade" target="adj_holy" id="1915" />
-      <edge source="noun_hope" target="adj_fair" id="1916" />
-      <edge source="noun_hope" target="adj_joyous" id="1917" />
+      <edge source="noun_hope" target="adj_joyous" id="1916" />
+      <edge source="noun_hope" target="adj_fair" id="1917" />
       <edge source="noun_hope" target="adj_sweet" id="1918" />
       <edge source="noun_hope" target="adj_new" id="1919" />
       <edge source="noun_hope" target="adj_eternal" id="1920" />
-      <edge source="noun_hope" target="adj_light" id="1921" />
-      <edge source="noun_hope" target="adj_pleasant" id="1922" />
+      <edge source="noun_hope" target="adj_pleasant" id="1921" />
+      <edge source="noun_hope" target="adj_light" id="1922" />
       <edge source="noun_hope" target="adj_gracious" id="1923" />
       <edge source="noun_hope" target="adj_full" id="1924" />
       <edge source="noun_hope" target="adj_first" id="1925" />
@@ -3014,8 +3014,8 @@
       <edge source="noun_mark" target="adj_long" id="2001" />
       <edge source="noun_mark" target="adj_other" id="2002" />
       <edge source="noun_mark" target="adj_free" id="2003" />
-      <edge source="noun_mark" target="adj_light" id="2004" />
-      <edge source="noun_mark" target="adj_eternal" id="2005" />
+      <edge source="noun_mark" target="adj_eternal" id="2004" />
+      <edge source="noun_mark" target="adj_light" id="2005" />
       <edge source="noun_mark" target="adj_new" id="2006" />
       <edge source="noun_wind" target="adj_light" id="2007" />
       <edge source="noun_wind" target="adj_full" id="2008" />
@@ -3067,8 +3067,8 @@
       <edge source="adj_other" target="adj_little" id="2054" />
       <edge source="adj_other" target="adj_heaven" id="2055" />
       <edge source="adj_other" target="adj_gentle" id="2056" />
-      <edge source="adj_other" target="adj_right" id="2057" />
-      <edge source="adj_other" target="adj_good" id="2058" />
+      <edge source="adj_other" target="adj_good" id="2057" />
+      <edge source="adj_other" target="adj_right" id="2058" />
       <edge source="adj_other" target="adj_celestial" id="2059" />
       <edge source="adj_other" target="adj_wrong" id="2060" />
       <edge source="adj_other" target="adj_goodly" id="2061" />
@@ -3086,8 +3086,8 @@
       <edge source="adj_first" target="adj_mighty" id="2073" />
       <edge source="adj_first" target="adj_dismal" id="2074" />
       <edge source="adj_first" target="adj_sharp" id="2075" />
-      <edge source="adj_first" target="adj_long" id="2076" />
-      <edge source="adj_first" target="adj_heaven" id="2077" />
+      <edge source="adj_first" target="adj_heaven" id="2076" />
+      <edge source="adj_first" target="adj_long" id="2077" />
       <edge source="adj_first" target="adj_open" id="2078" />
       <edge source="adj_first" target="adj_silent" id="2079" />
       <edge source="adj_first" target="adj_clear" id="2080" />
@@ -3109,8 +3109,8 @@
       <edge source="adj_good" target="adj_much" id="2096" />
       <edge source="adj_good" target="adj_heaven" id="2097" />
       <edge source="adj_good" target="adj_right" id="2098" />
-      <edge source="adj_good" target="adj_light" id="2099" />
-      <edge source="adj_good" target="adj_true" id="2100" />
+      <edge source="adj_good" target="adj_true" id="2099" />
+      <edge source="adj_good" target="adj_light" id="2100" />
       <edge source="adj_good" target="adj_evil" id="2101" />
       <edge source="adj_good" target="adj_ill" id="2102" />
       <edge source="adj_good" target="adj_beautiful" id="2103" />
@@ -3173,8 +3173,8 @@
       <edge source="adj_new" target="adj_strange" id="2160" />
       <edge source="adj_new" target="adj_right" id="2161" />
       <edge source="adj_new" target="adj_heaven" id="2162" />
-      <edge source="adj_new" target="adj_old" id="2163" />
-      <edge source="adj_new" target="adj_long" id="2164" />
+      <edge source="adj_new" target="adj_long" id="2163" />
+      <edge source="adj_new" target="adj_old" id="2164" />
       <edge source="adj_new" target="adj_full" id="2165" />
       <edge source="adj_new" target="adj_last" id="2166" />
       <edge source="adj_new" target="adj_sudden" id="2167" />
@@ -3214,8 +3214,8 @@
       <edge source="adj_sweet" target="adj_beauteous" id="2201" />
       <edge source="adj_sweet" target="adj_last" id="2202" />
       <edge source="adj_eternal" target="adj_brief" id="2203" />
-      <edge source="adj_eternal" target="adj_light" id="2204" />
-      <edge source="adj_eternal" target="adj_sacred" id="2205" />
+      <edge source="adj_eternal" target="adj_sacred" id="2204" />
+      <edge source="adj_eternal" target="adj_light" id="2205" />
       <edge source="adj_eternal" target="adj_beauteous" id="2206" />
       <edge source="adj_eternal" target="adj_gentle" id="2207" />
       <edge source="adj_eternal" target="adj_mortal" id="2208" />
@@ -3261,8 +3261,8 @@
       <edge source="adj_light" target="adj_upward" id="2248" />
       <edge source="adj_light" target="adj_heaven" id="2249" />
       <edge source="adj_light" target="adj_pleasant" id="2250" />
-      <edge source="adj_light" target="adj_wish" id="2251" />
-      <edge source="adj_light" target="adj_lofty" id="2252" />
+      <edge source="adj_light" target="adj_lofty" id="2251" />
+      <edge source="adj_light" target="adj_wish" id="2252" />
       <edge source="adj_light" target="adj_clear" id="2253" />
       <edge source="adj_light" target="adj_free" id="2254" />
       <edge source="adj_light" target="adj_second" id="2255" />
@@ -3312,8 +3312,8 @@
       <edge source="adj_bright" target="adj_lofty" id="2299" />
       <edge source="adj_bright" target="adj_celestial" id="2300" />
       <edge source="adj_bright" target="adj_primal" id="2301" />
-      <edge source="adj_bright" target="adj_left" id="2302" />
-      <edge source="adj_bright" target="adj_goodly" id="2303" />
+      <edge source="adj_bright" target="adj_goodly" id="2302" />
+      <edge source="adj_bright" target="adj_left" id="2303" />
       <edge source="adj_free" target="adj_few" id="2304" />
       <edge source="adj_free" target="adj_wish" id="2305" />
       <edge source="adj_wide" target="adj_strange" id="2306" />
