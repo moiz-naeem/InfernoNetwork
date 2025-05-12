@@ -36,8 +36,9 @@ def plot_centralities_power_law_fit(G):
 
     plt.figure(figsize=(18, 5))
     plt.subplot(1, 3, 1)
-    plt.hist(degree_centrality.values(), bins=30, color="skyblue", edgecolor="black")
-    plt.title("Dgree Centrality Distribution")
+    plt.hist(degree_centrality.values(), bins=30,
+             color="skyblue", edgecolor="black")
+    plt.title("Degree Centrality Distribution")
     plt.xlabel("Degree Centrality")
     plt.ylabel("Frequency")
 

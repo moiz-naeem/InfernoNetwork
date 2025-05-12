@@ -23,8 +23,10 @@ def network_components_analysis(G):
             1 for node in subgraph if subgraph.nodes[node].get("type") == "adjective"
         )
 
-        print(f"\nComponent {i + 1} (size: {subgraph.number_of_nodes()} nodes)")
-        print(f" Nouns: {noun_count} ({noun_count / subgraph.number_of_nodes():.1%})")
+        print(
+            f"\nComponent {i + 1} (size: {subgraph.number_of_nodes()} nodes)")
+        print(
+            f" Nouns: {noun_count} ({noun_count / subgraph.number_of_nodes():.1%})")
         print(
             f"  Adjs: {adjective_count} ({adjective_count / subgraph.number_of_nodes():.1%})"
         )
@@ -60,7 +62,8 @@ def summarize_components(G):
             diameter = "not connected"
             avg_path_length = "n/a"
 
-        avg_degree_centrality = np.mean(list(nx.degree_centrality(subgraph).values()))
+        avg_degree_centrality = np.mean(
+            list(nx.degree_centrality(subgraph).values()))
         data.append(
             (
                 f"Component {i + 1}",
