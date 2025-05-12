@@ -4,72 +4,71 @@ from req_1_text_processing import extract_using_tag, read_clean_text
 
 
 def relation_evolution(file_path, top_nouns, top_adjs):
+    """
+    Tracks the cumulative evolution of noun-noun, noun-adjective, and adjective-adjective relationships
+    across the lines of a text document.
+
+    Parameters:
+        file_path (str): Path to the text file.
+        top_nouns (set or list): Frequently occurring nouns to track.
+        top_adjs (set or list): Frequently occurring adjectives to track.
+
+    Saves:
+        'relationship_evolution.png': Line plot of how each relationship type evolves.
+    """
     lines = []
+    noun_noun, noun_adj, adj_adj = [], [], []
 
-    noun_noun = []
-    noun_adj = []
-    adj_adj = []
-
+    # Read and clean lines from file
     with open(file_path, "r", encoding="utf-8") as text:
         for line in text:
-            line = read_clean_text(line.split())
-            if line == "":
-                continue
-            lines.append(line)
+            cleaned_line = read_clean_text(line.split())
+            if cleaned_line:
+                lines.append(cleaned_line)
 
-    for i in range(len(lines)):
-        adj_this_line = 0
-        noun_this_line = 0
+    for i, line in enumerate(lines):
+        adj_count, noun_count = 0, 0
+        tokens = nltk.word_tokenize(line)
+        tagged_tokens = nltk.pos_tag(tokens)
 
-        current_line = lines[i]
-        all_word_token = nltk.tokenize.word_tokenize(current_line)
+        # Extract relevant words
+        adjectives = extract_using_tag(tagged_tokens, "JJ", "a")
+        nouns = extract_using_tag(tagged_tokens, "NN", "n")
 
-        words_token_tagged_by_pos = nltk.pos_tag(all_word_token)
+        # Count matching words
+        adj_count = sum(1 for adj in adjectives if adj in top_adjs)
+        noun_count = sum(1 for noun in nouns if noun in top_nouns)
 
-        adjectives = extract_using_tag(words_token_tagged_by_pos, "JJ", "a")
-        nouns = extract_using_tag(words_token_tagged_by_pos, "NN", "n")
+        # Compute relationships
+        noun_noun_val = max(0, noun_count * (noun_count - 1) / 2)
+        noun_adj_val = noun_count * adj_count
+        adj_adj_val = max(0, adj_count * (adj_count - 1) / 2)
 
-        for adj in adjectives:
-            if adj in top_adjs:
-                adj_this_line += 1
+        # Cumulative sum
+        noun_noun.append(noun_noun_val + (noun_noun[i - 1] if i > 0 else 0))
+        noun_adj.append(noun_adj_val + (noun_adj[i - 1] if i > 0 else 0))
+        adj_adj.append(adj_adj_val + (adj_adj[i - 1] if i > 0 else 0))
 
-        for noun in nouns:
-            if noun in top_nouns:
-                noun_this_line += 1
-
-        # relationships on this line
-        noun_noun.append(max(0, noun_this_line * (noun_this_line - 1) / 2))
-        noun_adj.append(noun_this_line * adj_this_line)
-        adj_adj.append(max(0, adj_this_line * (adj_this_line - 1) / 2))
-
-        if i != 0:
-            noun_noun[i] += noun_noun[(i - 1)]
-            noun_adj[i] += noun_adj[(i - 1)]
-            adj_adj[i] += adj_adj[(i - 1)]
-
-    # Plot the relationships
+    # Plotting
     plt.figure(figsize=(18, 15))
 
-    # Plot noun-noun relationships
     plt.subplot(3, 1, 1)
-    plt.plot(range(len(lines)), noun_noun, "r-", linewidth=1.5)
+    plt.plot(noun_noun, "r-", linewidth=1.5)
     plt.title("Noun-Noun Relationships", fontsize=16)
-    plt.ylabel("Number of Relationships")
+    plt.ylabel("Cumulative Count")
     plt.grid(True, alpha=0.3)
 
-    # Plot noun-adj relationships
     plt.subplot(3, 1, 2)
-    plt.plot(range(len(lines)), noun_adj, "g-", linewidth=1.5)
+    plt.plot(noun_adj, "g-", linewidth=1.5)
     plt.title("Noun-Adjective Relationships", fontsize=16)
-    plt.ylabel("Number of Relationships")
+    plt.ylabel("Cumulative Count")
     plt.grid(True, alpha=0.3)
 
-    # Plot adj-adj relationships
     plt.subplot(3, 1, 3)
-    plt.plot(range(len(lines)), adj_adj, "b-", linewidth=1.5)
+    plt.plot(adj_adj, "b-", linewidth=1.5)
     plt.title("Adjective-Adjective Relationships", fontsize=16)
     plt.xlabel("Line Number")
-    plt.ylabel("Number of Relationships")
+    plt.ylabel("Cumulative Count")
     plt.grid(True, alpha=0.3)
 
     plt.tight_layout()
