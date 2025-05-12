@@ -2,6 +2,7 @@ import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from scipy.stats import linregress
 
 
 def compare_fits(power_r2, truncated_r2):
@@ -118,6 +119,8 @@ def analyze_clustering_coefficient_distribution(G):
     else:
         fit_quality = "Weak evidence"
     print(f"{fit_quality} for {better_model.lower()} fit")
+
+    return bin_centers, counts
 
 
 def fit_power_law(x, y):
