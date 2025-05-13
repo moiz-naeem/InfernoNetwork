@@ -53,7 +53,7 @@ def relation_evolution(file_path, top_nouns, top_adjs):
     plt.ylabel("Number of Relationships")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig("n-n_evolution.png", dpi=300, bbox_inches="tight")
+    plt.savefig("noun_noun_relationships.png", dpi=300, bbox_inches="tight")
     plt.close()
 
     plt.figure(figsize=(12, 12))
@@ -62,7 +62,7 @@ def relation_evolution(file_path, top_nouns, top_adjs):
     plt.ylabel("Number of Relationships")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig("n-a_evolution.png", dpi=300, bbox_inches="tight")
+    plt.savefig("noun_adj_relationships.png", dpi=300, bbox_inches="tight")
     plt.close()
 
     plt.figure(figsize=(12, 12))
@@ -72,5 +72,5 @@ def relation_evolution(file_path, top_nouns, top_adjs):
     plt.ylabel("Number of Relationships")
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig("a-a_evolution.png", dpi=300, bbox_inches="tight")
+    plt.savefig("adj_adj_relationships.png", dpi=300, bbox_inches="tight")
     plt.close()
