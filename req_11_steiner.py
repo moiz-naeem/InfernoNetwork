@@ -123,15 +123,15 @@ def find_steiner_tree(G: nx.Graph):
 
     steiner = random_prim_st(G, terminals)
 
-    # print("________________________________")
-    # print("Random Steiner Graph")
-    # adj_noun_graph_properties_check(steiner)
+    print("________________________________")
+    print("Random Steiner Graph")
+    adj_noun_graph_properties_check(steiner)
 
     min_steiner = nx.approximation.steiner_tree(G, terminals)
 
-    # print("________________________________")
-    # print("Minimum Steiner Graph")
-    # adj_noun_graph_properties_check(min_steiner)
+    print("________________________________")
+    print("Minimum Steiner Graph")
+    adj_noun_graph_properties_check(min_steiner)
 
     visualize_steiner(
         steiner,
