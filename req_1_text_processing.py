@@ -132,7 +132,7 @@ def process_text(file_path):
     # clean each line separately, lines are needed later
     with open(file_path, "r", encoding="utf-8") as text:
         for line in text:
-            if line == "":
+            if line == "" or line == "\n" or line == " ":
                 continue
             line = read_clean_text(line.split())
             lines.append(line)
